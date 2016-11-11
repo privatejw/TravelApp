@@ -14,5 +14,4 @@ public class RouteOptimisation {
         return 0.6*time + 0.4*price;
     }
 
-    private class Node {}
 }
