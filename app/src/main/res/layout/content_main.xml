@@ -22,9 +22,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
-        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:entries="@array/country_arrays"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:overScrollMode="always"
+        android:verticalScrollbarPosition="right"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        tools:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:scrollbarAlwaysDrawVerticalTrack="true" />
 </RelativeLayout>

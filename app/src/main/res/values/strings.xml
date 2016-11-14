@@ -2,14 +2,8 @@
     <string name="app_name">TravelApp</string>
     <string name="action_settings">Settings</string>
     <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
+        <item>Marina Bay Sands</item>
+        <item>Resorts World Sentosa</item>
     </string-array>
     <string name="title_activity_location_picker">Location Picker</string>
     <string-array name="item_array">
