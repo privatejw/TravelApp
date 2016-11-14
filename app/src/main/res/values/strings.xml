@@ -11,4 +11,53 @@
         <item>New Zealand</item>
         <item>India</item>
     </string-array>
+    <string name="title_activity_location_picker">Location Picker</string>
+    <string-array name="item_array">
+        <item>Bird</item>
+        <item>Children</item>
+        <item>Add</item>
+        <item>Flower</item>
+        <item>Smile</item>
+        <item>Peacock</item>
+        <item>Add</item>
+        <item>Add</item>
+        <item>Bird</item>
+        <item>Add</item>
+        <item>Flower</item>
+        <item>Peacock</item>
+    </string-array>
+
+    <string-array name="item_description">
+        <item>Description Bird</item>
+        <item>Description Children</item>
+        <item>Description Add</item>
+        <item>Description Flower</item>
+        <item>Description Smile</item>
+        <item>Description Peacock</item>
+        <item>Description Add</item>
+        <item>Description Add</item>
+        <item>Description Bird</item>
+        <item>Description Add</item>
+        <item>Description Flower</item>
+        <item>Description Peacock</item>
+    </string-array>
+
+    <string-array name="item_images">
+        <item>@drawable/ic_menu_camera</item>
+        <item>@drawable/ic_menu_gallery</item>
+        <item>@drawable/ic_menu_manage</item>
+        <item>@drawable/ic_menu_send</item>
+        <item>@drawable/ic_menu_share</item>
+        <item>@drawable/ic_menu_slideshow</item>
+        <item>@drawable/ic_menu_share</item>
+        <item>@drawable/ic_menu_slideshow</item>
+        <item>@drawable/ic_menu_send</item>
+        <item>@drawable/ic_menu_camera</item>
+        <item>@drawable/ic_menu_send</item>
+        <item>@drawable/ic_menu_manage</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_display_route">DisplayRoute</string>
 </resources>

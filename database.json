@@ -1,0 +1,50 @@
+{
+    "Marina Bay Sands": {
+        "Marina Bay Sands": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Resorts World Sentosa": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Zoo": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0],
+        "Vivocity": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Singapore Flyer": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Buddha Tooth Relic Temple": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0]
+    },
+    "Resorts World Sentosa": {
+        "Marina Bay Sands": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Resorts World Sentosa": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Zoo": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0],
+        "Vivocity": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Singapore Flyer": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Buddha Tooth Relic Temple": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0]
+    },
+    "Zoo": {
+        "Marina Bay Sands": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Resorts World Sentosa": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0],
+        "Zoo": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Vivocity": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Singapore Flyer": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Buddha Tooth Relic Temple": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0]
+    },
+    "Vivocity": {
+        "Marina Bay Sands": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Resorts World Sentosa": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Zoo": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0],
+        "Vivocity": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Singapore Flyer": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Buddha Tooth Relic Temple": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0]
+    },
+    "Singapore Flyer": {
+        "Marina Bay Sands": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Resorts World Sentosa": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Zoo": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0],
+        "Vivocity": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Singapore Flyer": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "Buddha Tooth Relic Temple": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0]
+    },
+    "Buddha Tooth Relic Temple": {
+        "Marina Bay Sands": [3.22, 3.0, 0.83, 17.0, 0.0, 14.0],
+        "Resorts World Sentosa": [4.98, 8.0, 0.88, 19.0, 0.0, 28.0],
+        "Zoo": [18.4, 30.0, 1.96, 84.0, 0.0, 269.0],
+        "Vivocity": [8.5, 19.0, 4.03, 35.0, 0.0, 76.0],
+        "Singapore Flyer": [6.96, 14.0, 1.18, 26.0, 0.0, 69.0],
+        "Buddha Tooth Relic Temple": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    }
+}

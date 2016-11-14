@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_location_picker"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="class1.istd.travelapp.ItineraryPlanner.LocationPicker"
+    tools:showIn="@layout/app_bar_location_picker">
+
+    <TextView
+        android:text="Select places to visit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textAlignment="center" />
+
+    <ListView
+        android:id="@+id/listAttractions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView3">
+    </ListView>
+
+    <Button
+        android:text="Plan my route!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnPlanRoute"
+        android:background="@android:color/holo_red_light"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@android:color/background_light" />
+
+    <TextView
+        android:text="Hotel:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/btnPlanRoute"
+        android:layout_alignLeft="@+id/btnPlanRoute"
+        android:layout_alignStart="@+id/btnPlanRoute"
+        android:layout_below="@+id/txtBudget"
+        android:layout_toLeftOf="@+id/txtHotel"
+        android:layout_toStartOf="@+id/txtHotel"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/txtBudget"
+        android:hint="0.00"
+        android:layout_above="@+id/txtHotel"
+        android:layout_alignLeft="@+id/txtHotel"
+        android:layout_alignStart="@+id/txtHotel" />
+
+    <TextView
+        android:text="Fare Budget: $"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_alignTop="@+id/txtBudget"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_above="@+id/txtHotel"
+        android:layout_toLeftOf="@+id/txtBudget"
+        android:layout_toStartOf="@+id/txtBudget"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:textSize="18sp" />
+
+    <AutoCompleteTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Marina Bay Sands"
+        android:ems="10"
+        android:id="@+id/txtHotel"
+        android:layout_above="@+id/btnPlanRoute"
+        android:layout_alignRight="@+id/btnPlanRoute"
+        android:layout_alignEnd="@+id/btnPlanRoute" />
+</RelativeLayout>
