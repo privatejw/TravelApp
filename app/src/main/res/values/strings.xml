@@ -51,6 +51,107 @@
         <item>@drawable/ic_menu_manage</item>
     </string-array>
 
+    <string-array name="item_attractions">
+        <item>Abdul Gaffoor Mosque</item>
+        <item>Al-Abrar Mosque</item>
+        <item>ArtScience Museum</item>
+        <item>Asian Civilisations Museum</item>
+        <item>Bright Hill Temple (Khong Meng San Phor Kark See Temple)</item>
+        <item>Buddha Tooth Relic Temple</item>
+        <item>Bukit Timah Nature Reserve</item>
+        <item>Cathedral of the Good Shepherd</item>
+        <item>Central Catchment Nature Reserve</item>
+        <item>Central Sikh Temple</item>
+        <item>Changi Prison Chapel and Museum</item>
+        <item>Chijmes</item>
+        <item>Chinatown Heritage Centre</item>
+        <item>Chinese and Japanese Gardens</item>
+        <item>Chinese Methodist Church</item>
+        <item>Church of St Gregory the Illuminator</item>
+        <item>Crane Dance</item>
+        <item>East Coast Park</item>
+        <item>Esplanade - Theatres on the Bay</item>
+        <item>Eu Yan Sang Chinese Medical Hall</item>
+        <item>Fort Canning Park</item>
+        <item>Gardens by the Bay</item>
+        <item>Geylang Serai Market</item>
+        <item>G-Max Reverse Bungy</item>
+        <item>Hajjah Fatimah Mosque</item>
+        <item>Haw Par Villa</item>
+        <item>HortPark</item>
+        <item>House of Tan Teng Niah</item>
+        <item>Images of Singapore</item>
+        <item>Istana</item>
+        <item>Jamae Mosque</item>
+        <item>Joo Chiat Street</item>
+        <item>Jurong Bird Park</item>
+        <item>Katong</item>
+        <item>Kranji War Memorial</item>
+        <item>Kusu Island</item>
+        <item>Kwan Im Thong Hood Cho Temple</item>
+        <item>Lau Pa Sat (Telok Ayer Market)</item>
+        <item>Leong San See Temple</item>
+        <item>Maghain Aboth Synagogue</item>
+        <item>Malay Heritage Centre</item>
+        <item>Malay Village</item>
+        <item>Mandai Orchid Gardens</item>
+        <item>Marina Barrage</item>
+        <item>Marina Bay Sands</item>
+        <item>Marina Bay Sands Casino</item>
+        <item>Marina Bay Sands SkyPark</item>
+        <item>Maxwell Road Hawker Centre</item>
+        <item>Merlion Park</item>
+        <item>Mount Faber Park</item>
+        <item>Nagore Durgha Shrine</item>
+        <item>National Museum of Singapore</item>
+        <item>National Orchid Garden</item>
+        <item>NEWater Visitor Centre</item>
+        <item>Old Parliament House</item>
+        <item>Peranakan Museum</item>
+        <item>Pulau Ubin</item>
+        <item>Raffles Hotel</item>
+        <item>Raffles Place</item>
+        <item>Red Dot Design Museum</item>
+        <item>Resort World Sentosa Casino</item>
+        <item>Sentosa Skyline Luge and Skyride</item>
+        <item>Singapore Art Museum</item>
+        <item>Singapore Bazaar and Flea Market</item>
+        <item>Singapore Botanic Gardens</item>
+        <item>Singapore Butterfly and Insect Kingdom</item>
+        <item>Singapore Discovery Centre</item>
+        <item>Singapore F1 Grand Prix</item>
+        <item>Singapore Flyer</item>
+        <item>Singapore Mint Coin Gallery</item>
+        <item>Singapore Navy Museum</item>
+        <item>Singapore Night Safari</item>
+        <item>Singapore Philatelic Museum</item>
+        <item>Singapore River</item>
+        <item>Science Centre Singapore</item>
+        <item>Singapore Zoo</item>
+        <item>Siong Lim Temple</item>
+        <item>Sisters\' Islands</item>
+        <item>Songs of the Sea</item>
+        <item>Sri Krishnan Temple</item>
+        <item>Sri Mariamman Temple</item>
+        <item>Sri Srinivasa Perumal Temple</item>
+        <item>Sri Thandayuthapani Temple</item>
+        <item>Sri Veeramakaliamman Temple</item>
+        <item>St Andrew\'s Cathedral</item>
+        <item>St John\'s Island</item>
+        <item>Statues of Sir Stamford Raffles</item>
+        <item>Sultan Mosque</item>
+        <item>Sungei Buloh Nature Park</item>
+        <item>Supreme Court</item>
+        <item>Temple of 1,000 Lights (Sakyamuni Buddha Gaya Temple)</item>
+        <item>The Padang</item>
+        <item>The Southern Ridges</item>
+        <item>Thian Hock Keng Temple</item>
+        <item>Treetop Walk at MacRitchie Reservoir</item>
+        <item>Underwater World</item>
+        <item>Universal Studios Singapore</item>
+        <item>Wonder Full at Marina Bay Sands</item>
+    </string-array>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_display_route">DisplayRoute</string>

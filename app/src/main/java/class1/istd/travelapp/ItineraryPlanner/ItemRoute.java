@@ -1,6 +1,9 @@
 package class1.istd.travelapp.ItineraryPlanner;
 
-public class ItemRoute {
+import java.io.Serializable;
+
+public class ItemRoute implements Serializable{
+    private static final long serialVersionUID = 0L;
     private String location;
     private int imagePathType;
     private String routeInfo;

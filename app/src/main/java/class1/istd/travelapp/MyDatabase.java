@@ -21,10 +21,11 @@ import java.util.Scanner;
 import org.json.*;
 
 public class MyDatabase {
+    static final String dbname = "newDatabase2";
     HashMap<String, HashMap<String,double[]>> database;
     MyDatabase() {
         try {
-            this.database = readFile("taxi");
+            this.database = readFile(dbname);
         } catch (IOException e) {
             this.database = new HashMap<String, HashMap<String,double[]>>();
             e.printStackTrace();
@@ -44,7 +45,7 @@ public class MyDatabase {
         HashMap<String, HashMap<String,double[]>> nodes = new HashMap<String, HashMap<String,double[]>>();
         HashMap<String, double[]> cost;
 
-        FileReader f = new FileReader("taxi");
+        FileReader f = new FileReader(filename);
         BufferedReader reader = new BufferedReader(f);
 
         String line = reader.readLine();
@@ -72,7 +73,7 @@ public class MyDatabase {
     }
     static void printJSON() {
         try {
-            HashMap<String, HashMap<String, double[]>> n = (new MyDatabase(1)).readFile("taxi");
+            HashMap<String, HashMap<String, double[]>> n = MyDatabase.readFile(dbname);
             for (String s: n.keySet()) {
                 System.out.println("\""+s+"\": {");
                 for (String d: n.get(s).keySet()) {
@@ -86,6 +87,7 @@ public class MyDatabase {
         }
     }
     void readJSON() {
+        // doesn't work exactly as intended
         try {
             JSONObject obj = new JSONObject("database.json");
             JSONArray pageName = obj.getJSONObject("Zoo").getJSONArray("Zoo");
@@ -100,6 +102,7 @@ public class MyDatabase {
     void run() {}
 
     public static void main(String[] args) {
-        (new MyDatabase()).run();
+//        (new MyDatabase()).run();
+        printJSON();
     }
 }

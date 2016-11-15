@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/item_image"
-        android:layout_toEndOf="@+id/item_image">
+        android:layout_toRightOf="@+id/toggleBtn"
+        android:layout_toEndOf="@+id/toggleBtn">
 
         <TextView
             android:id="@+id/item_name"
@@ -43,14 +43,5 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/item_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:padding="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/toggleBtn"
-        android:layout_toEndOf="@+id/toggleBtn" />
 
 </RelativeLayout>

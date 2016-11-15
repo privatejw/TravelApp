@@ -45,12 +45,10 @@ public class LocationPicker extends AppCompatActivity
         // row items start
         List<ItemAttraction> itemAttractions = new ArrayList<ItemAttraction>();
 
-        TypedArray item_image = getResources().obtainTypedArray(R.array.item_images);
-        String[] item_name = getResources().getStringArray(R.array.item_array);
-        String[] item_description = getResources().getStringArray(R.array.item_description);
+        String[] item_name = getResources().getStringArray(R.array.item_attractions);
 
         for (int i=0; i < item_name.length; i++) {
-            ItemAttraction item = new ItemAttraction(item_name[i], item_image.getResourceId(i, -1), item_description[i]);
+            ItemAttraction item = new ItemAttraction(item_name[i], "Stars go here");
             itemAttractions.add(item);
         }
 
@@ -80,7 +78,7 @@ public class LocationPicker extends AppCompatActivity
         txtHotel.setThreshold(1);
         txtHotel.setAdapter(new ArrayAdapter<>(getBaseContext(),
                 android.R.layout.simple_spinner_dropdown_item,
-                getResources().getStringArray(R.array.item_array)));
+                getResources().getStringArray(R.array.item_attractions)));
         btnPlanRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,11 +90,9 @@ public class LocationPicker extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i) {
-            case 1:
-                Toast.makeText(getApplicationContext(), "Children: Two children", Toast.LENGTH_SHORT).show();
-                break;
-        }
+        String locationClicked = ((ItemAttraction) adapter.getItem(i)).getItem_name();
+        Toast.makeText(getApplicationContext(), locationClicked, Toast.LENGTH_SHORT).show();
+        //TODO: put extra and add new intent to review screen
     }
 
     @Override
@@ -157,6 +153,7 @@ public class LocationPicker extends AppCompatActivity
     }
 
     public void btnPlanRouteClicked(View view) {
+        // Retrieve budget and starting hotel from user
         double budget;
         try {
             budget = Double.parseDouble(txtBudget.getText().toString());
@@ -164,34 +161,51 @@ public class LocationPicker extends AppCompatActivity
             budget = 0;
         }
         String hotel = txtHotel.getText().toString();
-        ArrayList<String> placesToVisit = new ArrayList<String>();
-        String[] locations = getResources().getStringArray(R.array.item_array);
 
-        for (ItemAttraction r: adapter.itemAttractions) {
-            if (r.isSelected())
-                placesToVisit.add(r.getItem_name());
+        //  get places to visit and ensure that the hotel name is valid
+        ArrayList<String> placesToVisit = new ArrayList<String>();
+        String[] locations = getResources().getStringArray(R.array.item_attractions);
+
+        for (ItemAttraction attraction: adapter.itemAttractions) {
+            if (attraction.isSelected())
+                placesToVisit.add(attraction.getItem_name());
         }
         if (placesToVisit.isEmpty()) {
             Toast.makeText(getApplicationContext(),
                     "Please select at least 1 location", Toast.LENGTH_SHORT).show();
         } else if (!Arrays.asList(locations).contains(hotel)) {
-            Toast.makeText(getApplicationContext(),
-                    "Invalid Hotel", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Invalid Hotel", Toast.LENGTH_SHORT).show();
         } else {
-            planRoute(budget, hotel, placesToVisit);
+            // get the item routes
+            String[] overallRouteInfo = new String[1];
+            ArrayList<ItemRoute> itemRoutes = planRoute(budget, hotel, placesToVisit, overallRouteInfo);
+
+            // add the route information and start the new activity
+            Intent newIntent = new Intent(getApplicationContext(), DisplayRoute.class);
+            newIntent.putExtra("itemRoutes", itemRoutes);
+            newIntent.putExtra("overallRouteInfo", overallRouteInfo[0]);
+            startActivity(newIntent);
         }
     }
 
-    public void planRoute(double budget, String hotel, ArrayList<String> placesToVisit) {
+    public ArrayList<ItemRoute> planRoute(double budget, String hotel,
+                ArrayList<String> placesToVisit, String[] overallRouteInfo) {
         Toast.makeText(getApplicationContext(),
                 "Yayyy!", Toast.LENGTH_SHORT).show();
 
         ArrayList<ItemRoute> itemRoutes = new ArrayList<ItemRoute>();
-        String routeInfo = "Yeapp";
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 1 mins"));
+        itemRoutes.add(new ItemRoute("HOs", 0, ""));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.walk_icon, "Bus: $4\nTime: 2 mins"));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.car_icon, "Bus: $4\nTime: 3 mins"));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 4 mins"));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.walk_icon, "Bus: $4\nTime: 5 mins"));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.car_icon, "Bus: $4\nTime: 6 mins"));
+        itemRoutes.add(new ItemRoute("HOTEL", 0, ""));
+        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 7 mins"));
+        itemRoutes.add(new ItemRoute("HOTEL", 0, ""));
+        overallRouteInfo[0] = "Yeapp";
 
-        Intent newIntent = new Intent(getApplicationContext(), DisplayRoute.class);
-        newIntent.putExtra("itemRoutes", itemRoutes);
-        newIntent.putExtra("routeInfo", routeInfo);
-        startActivity(newIntent);
+        return itemRoutes;
     }
 }

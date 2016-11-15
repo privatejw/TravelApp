@@ -49,14 +49,12 @@ public class AttractionAdapter extends BaseAdapter {
         if (view == null) {
             view = mInflater.inflate(R.layout.list_item_attraction, null);
             holder = new ViewHolder();
-            holder.item_image = (ImageView) view.findViewById(R.id.item_image);
             holder.item_name = (TextView) view.findViewById(R.id.item_name);
             holder.item_description = (TextView) view.findViewById(R.id.item_description);
             holder.toggleBtn = (ToggleButton) view.findViewById(R.id.toggleBtn);
 
             ItemAttraction row_pos = itemAttractions.get(i);
 
-            holder.item_image.setImageResource(row_pos.getItem_image__id());
             holder.item_name.setText(row_pos.getItem_name());
             holder.item_description.setText(row_pos.getItem_description());
             holder.toggleBtn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +70,6 @@ public class AttractionAdapter extends BaseAdapter {
         }
 
         ItemAttraction itemAttraction = itemAttractions.get(i);
-        holder.item_image.setImageResource(itemAttraction.getItem_image__id());
         holder.item_name.setText(itemAttraction.getItem_name());
         holder.item_description.setText(itemAttraction.getItem_description());
         holder.toggleBtn.setChecked(itemAttraction.isSelected());

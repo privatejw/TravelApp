@@ -3,6 +3,7 @@ package class1.istd.travelapp.ItineraryPlanner;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.ToggleButton;
 import java.util.List;
 
 import class1.istd.travelapp.R;
+
+import static android.content.ContentValues.TAG;
 
 public class RouteAdapter extends BaseAdapter {
     Context context;
@@ -58,8 +61,10 @@ public class RouteAdapter extends BaseAdapter {
             holder.txtLocation.setText(row_pos.getLocation());
             holder.imagePathType.setImageResource(row_pos.getImagePathType());
             holder.txtRouteInfo.setText(row_pos.getRouteInfo());
+
+            view.setTag(holder);
         } else {
-            holder = (RouteAdapter.ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
 
         ItemRoute itemRoute = itemRoutes.get(i);
