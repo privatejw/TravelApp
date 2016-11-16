@@ -193,6 +193,8 @@ public class LocationPicker extends AppCompatActivity
         Toast.makeText(getApplicationContext(),
                 "Yayyy!", Toast.LENGTH_SHORT).show();
 
+
+
         ArrayList<ItemRoute> itemRoutes = new ArrayList<ItemRoute>();
         itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 1 mins"));
         itemRoutes.add(new ItemRoute("HOs", 0, ""));

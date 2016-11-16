@@ -22,7 +22,7 @@ import org.json.*;
 
 public class MyDatabase {
     static final String dbname = "newDatabase2";
-    HashMap<String, HashMap<String,double[]>> database;
+    static HashMap<String, HashMap<String,double[]>> database;
     MyDatabase() {
         try {
             this.database = readFile(dbname);
