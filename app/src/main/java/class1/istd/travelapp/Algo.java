@@ -1,6 +1,9 @@
 package class1.istd.travelapp;
 
+import android.widget.AutoCompleteTextView;
+
 import java.sql.Array;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,38 +15,20 @@ import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
  */
 
 public class Algo {
-    static int bestTime=100000;
-    static String[] bestRoute;
-    static String[] thisRoute;
-    static int thisWalkTime;
-    static int thisBusTime;
-    static int thisTaxiTime;
-    static double thisBusPrice;
-    static double thisTaxiPrice;
-    static int bestWalkTime;
-    static int bestBusTime;
-    static int bestTaxiTime;
-    static double bestBusPrice;
-    static double bestTaxiPrice;
-
-    public static void anagram(String prefix, String suffix) {
-        String newPrefix, newSuffix;
-        int numOfChars = suffix.length();
-        if (numOfChars == 1) {
-            //End case: print out one anagram
-            System.out.println(prefix + suffix);
-        } else {
-            for (int i = 1; i <= numOfChars; i++) {
-                newSuffix = suffix.substring(1, numOfChars);
-                newPrefix = prefix + suffix.charAt(0);
-                anagram(newPrefix, newSuffix);
-                //recursive call//rotate left to create a rearranged suffix
-                suffix = newSuffix + suffix.charAt(0);
-            }
-        }
-    }
-
-
+    int bestTime=100000;
+    String[] bestRoute;
+    String[] thisRoute;
+    int thisWalkTime;
+    int thisBusTime;
+    int thisTaxiTime;
+    double thisBusPrice;
+    double thisTaxiPrice;
+    int bestWalkTime;
+    int bestBusTime;
+    int bestTaxiTime;
+    double bestBusPrice;
+    double bestTaxiPrice;
+    String hotel;
 //    public static void permute(int[] arr){
 //        permuteHelper(arr, 0);
 //    }
@@ -80,11 +65,11 @@ public class Algo {
 //    }
 
 
-    public static void permute(int[] arr,String[]location){
+    public void permute(int[] arr,String[]location){
         permuteHelper(arr, 0,location);
     }
 
-    private static void permuteHelper(int[] arr, int index,String[]location){
+    private void permuteHelper(int[] arr, int index,String[]location){
 
         int thisTime;
 
@@ -101,7 +86,7 @@ public class Algo {
 //            System.out.println("]");
 
             //System.out.println(Arrays.toString(indexToString(arr,location)));
-            thisTime=getPriceAndTime(indexToString(arr,location));
+            thisTime=getPriceAndTime(  addHotel(indexToString(arr,location))  );
             if (thisTime<bestTime){
                 bestTime=thisTime;
                 bestRoute=thisRoute;
@@ -132,7 +117,7 @@ public class Algo {
         }
     }
 
-    public static String[] indexToString(int[] ind,String[] arr) {
+    public String[] indexToString(int[] ind,String[] arr) {
         String[]out=new String[arr.length];
         for(int i=0;i<arr.length;i++){
             out[i]=arr[ind[i]-1];
@@ -140,7 +125,7 @@ public class Algo {
         return out;
     }
 
-    public static int getPriceAndTime(String[] path){
+    public int getPriceAndTime(String[] path){
         thisRoute=path;
         int totalTaxiTime=0;
         double totalTaxiPrice=0;
@@ -167,7 +152,7 @@ public class Algo {
         return totalBusTime;
     }
 
-    public static int getPriceAndTime(String[] path, float budget){
+    public int getPriceAndTime(String[] path, float budget){
         thisRoute=path;
         int totalTaxiTime=0;
         double totalTaxiPrice=0;
@@ -191,7 +176,7 @@ public class Algo {
         return totalBusTime;
     }
 
-    public static void checkBudget(int budget){
+    public void checkBudget(int budget){
         if (budget>=bestTaxiPrice){
             System.out.println("taxi");
             System.out.println("Price:"+bestTaxiPrice);
@@ -207,7 +192,7 @@ public class Algo {
         System.out.println(Arrays.toString(bestRoute));
     }
 
-    public static void detailBudget(double budget){
+    public void detailBudget(double budget){
         int currentTime=bestTaxiTime;
         double currentPrice=bestTaxiPrice;
         int[] transport= new int[bestRoute.length-1];
@@ -245,27 +230,45 @@ public class Algo {
         System.out.println("Time: "+currentTime+ " minutes");
     }
 
-    public static ArrayList<ItemRoute> getBestPath(String[] arr, double budget, String hotel) {
+    public ArrayList<ItemRoute> getBestPath(String[] arr, double budget, String hotel) {
         (new MyDatabase()).run();
         //System.out.println(  Arrays.toString((MyDatabase.database.get("Marina Bay Sands").get("Vivocity")))  );
         //anagram("","cde");
         //permute(new int[]{1,2,3});
-        permute(new int[]{1,2,3,4},arr);
+        int[] dily = new int[arr.length];
+        for (int i=1; i<=arr.length;i++){
+            dily[i-1]=i;
+        }
+        permute(dily,arr);
         //getPriceAndTime(arr);
         //System.out.println("Best Time: "+bestTime);
         //System.out.println("Best Route: "+Arrays.toString(bestRoute) );
-        detailBudget(budget);
+        detailBudget(budget);  //prints the output.
 
         return new ArrayList<ItemRoute>();
     }
+    public String[] addHotel(String[] arr){
+        String[] out=new String[arr.length+2];
+        out[0]=hotel;
+        for (int i=0;i<arr.length;i++){
+            out[i+1]=arr[i];
+        }
+
+        out[arr.length+1]=hotel;
+
+        return out;
+    }
+
+    Algo(){}
 
     public static void main(String[] args) {
-        getBestPath(new String[]{"Wonder Full at Marina Bay Sands",
-                "ArtScience Museum","Singapore Zoo","Singapore Flyer"}, 5.39, "Singapore Zoo");
+        Algo name=new Algo();
+        name.hotel= "Resort World Sentosa Casino";
+        System.out.println(Arrays.toString(name.addHotel( new String[] {"Wonder Full at Marina Bay Sands",
+                "ArtScience Museum","Singapore Zoo","Singapore Flyer"})));
+        name.getBestPath(new String[]{"Wonder Full at Marina Bay Sands",
+                "ArtScience Museum","Singapore Zoo","Singapore Flyer"}, 0.6, "Singapore Zoo");
     }
 
 
 }
-
-
-
