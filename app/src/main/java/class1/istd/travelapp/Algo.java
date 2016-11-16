@@ -6,7 +6,7 @@ import java.util.Arrays;
 import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
 
 public class Algo {
-    int bestTime=100000;
+    int bestTime;
     String[] bestRoute;
     String[] thisRoute;
     int thisWalkTime;
@@ -218,11 +218,6 @@ public class Algo {
                 if (budget>=currentPrice)break;
             }
         }
-
-        System.out.println(Arrays.toString(transport));
-        System.out.println(Arrays.toString(bestRoute));
-        System.out.println("Price: $"+Math.round(currentPrice * 100.0) / 100.0);
-        System.out.println("Time: "+currentTime+ " minutes");
     }
 
     public String[] addHotel(String[] arr){
@@ -247,6 +242,7 @@ public class Algo {
 
     public ArrayList<ItemRoute> getBestPath(String[] arr, double budget, String hotel,
                                             String[] overallRouteInfo) {
+        this.bestTime = 100000;
         this.hotel= hotel;
         int[] dily = new int[arr.length];
         for (int i=1; i<=arr.length;i++){
@@ -286,5 +282,11 @@ public class Algo {
         Algo algo = new Algo();
         algo.getBestPath(new String[]{"Wonder Full at Marina Bay Sands", "ArtScience Museum",
                 "Singapore Zoo", "Singapore Flyer"}, 0.6, "Bukit Timah Nature Reserve", new String[1]);
+
+
+        System.out.println(Arrays.toString(algo.transport));
+        System.out.println(Arrays.toString(algo.bestRoute));
+        System.out.println("Price: $"+Math.round(algo.currentPrice * 100.0) / 100.0);
+        System.out.println("Time: "+algo.currentTime+ " minutes");
     }
 }
