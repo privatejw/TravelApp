@@ -95,7 +95,7 @@ public class LocationPicker extends AppCompatActivity
 
         // initialize database
         try {
-            MyDatabase db = new MyDatabase(new InputStreamReader(getAssets().open("newDatabase2")));
+            MyDatabase db = new MyDatabase(new InputStreamReader(getAssets().open("finalDatabase")));
             algo = new Algo(db);
         } catch (IOException e) {
             Log.e("failed to load database", ": nooo");

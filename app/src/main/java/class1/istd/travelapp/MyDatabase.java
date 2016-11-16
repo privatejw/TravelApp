@@ -22,7 +22,7 @@ import java.util.Scanner;
 import org.json.*;
 
 public class MyDatabase {
-    static final String dbname = "newDatabase2";
+    static final String dbname = "finalDatabase";
     static HashMap<String, HashMap<String,double[]>> database;
     public MyDatabase() {
         try {
