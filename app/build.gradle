@@ -3,6 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 25
     buildToolsVersion "24.0.2"
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets/']
+        }
+    }
     defaultConfig {
         applicationId "class1.istd.travelapp"
         minSdkVersion 14

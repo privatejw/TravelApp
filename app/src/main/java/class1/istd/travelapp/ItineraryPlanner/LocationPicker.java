@@ -3,6 +3,7 @@ package class1.istd.travelapp.ItineraryPlanner;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -20,10 +21,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import class1.istd.travelapp.Algo;
+import class1.istd.travelapp.MyDatabase;
 import class1.istd.travelapp.R;
 
 public class LocationPicker extends AppCompatActivity
@@ -34,6 +39,7 @@ public class LocationPicker extends AppCompatActivity
     EditText txtBudget;
     AutoCompleteTextView txtHotel;
     Button btnPlanRoute;
+    Algo algo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +92,15 @@ public class LocationPicker extends AppCompatActivity
             }
         });
         // other ui elements end
+
+        // initialize database
+        try {
+            MyDatabase db = new MyDatabase(new InputStreamReader(getAssets().open("newDatabase2")));
+            algo = new Algo(db);
+        } catch (IOException e) {
+            Log.e("failed to load database", ": nooo");
+        }
+        // initialize database end
     }
 
     @Override
@@ -191,22 +206,10 @@ public class LocationPicker extends AppCompatActivity
     public ArrayList<ItemRoute> planRoute(double budget, String hotel,
                 ArrayList<String> placesToVisit, String[] overallRouteInfo) {
         Toast.makeText(getApplicationContext(),
-                "Yayyy!", Toast.LENGTH_SHORT).show();
+                "Path found!", Toast.LENGTH_SHORT).show();
 
-
-
-        ArrayList<ItemRoute> itemRoutes = new ArrayList<ItemRoute>();
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 1 mins"));
-        itemRoutes.add(new ItemRoute("HOs", 0, ""));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.walk_icon, "Bus: $4\nTime: 2 mins"));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.car_icon, "Bus: $4\nTime: 3 mins"));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 4 mins"));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.walk_icon, "Bus: $4\nTime: 5 mins"));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.car_icon, "Bus: $4\nTime: 6 mins"));
-        itemRoutes.add(new ItemRoute("HOTEL", 0, ""));
-        itemRoutes.add(new ItemRoute("Marina Bay", R.drawable.bus_icon, "Bus: $4\nTime: 7 mins"));
-        itemRoutes.add(new ItemRoute("HOTEL", 0, ""));
-        overallRouteInfo[0] = "Yeapp";
+        ArrayList<ItemRoute> itemRoutes = algo.getBestPath(
+                placesToVisit.toArray(new String[placesToVisit.size()]), budget, hotel, overallRouteInfo);
 
         return itemRoutes;
     }

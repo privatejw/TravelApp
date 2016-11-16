@@ -1,18 +1,9 @@
 package class1.istd.travelapp;
 
-import android.widget.AutoCompleteTextView;
-
-import java.sql.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
-
-/**
- * Created by YingJie on 14/11/2016.
- */
 
 public class Algo {
     int bestTime=100000;
@@ -29,6 +20,10 @@ public class Algo {
     double bestBusPrice;
     double bestTaxiPrice;
     String hotel;
+    int currentTime;
+    double currentPrice;
+    int[] transport;
+    MyDatabase db;
 //    public static void permute(int[] arr){
 //        permuteHelper(arr, 0);
 //    }
@@ -134,11 +129,11 @@ public class Algo {
         int totalWalkTime=0;
         int totalWalkPrice=0;
         for (int i=0;i<=path.length-2;i++){
-            totalTaxiTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[1];
-            totalTaxiPrice+=(MyDatabase.database.get(path[i]).get(path[i+1]))[0];
-            totalBusTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[3];
-            totalBusPrice+=(MyDatabase.database.get(path[i]).get(path[i+1]))[2];
-            totalWalkTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[5];
+            totalTaxiTime+=(db.database.get(path[i]).get(path[i+1]))[1];
+            totalTaxiPrice+=(db.database.get(path[i]).get(path[i+1]))[0];
+            totalBusTime+=(db.database.get(path[i]).get(path[i+1]))[3];
+            totalBusPrice+=(db.database.get(path[i]).get(path[i+1]))[2];
+            totalWalkTime+=(db.database.get(path[i]).get(path[i+1]))[5];
 
         }
         thisWalkTime=totalWalkTime;
@@ -161,11 +156,11 @@ public class Algo {
         int totalWalkTime=0;
         int totalWalkPrice=0;
         for (int i=0;i<=path.length-2;i++){
-            totalTaxiTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[0];
-            totalTaxiPrice+=(MyDatabase.database.get(path[i]).get(path[i+1]))[1];
-            totalBusTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[3];
-            totalBusPrice+=(MyDatabase.database.get(path[i]).get(path[i+1]))[2];
-            totalWalkTime+=(MyDatabase.database.get(path[i]).get(path[i+1]))[5];
+            totalTaxiTime+=(db.database.get(path[i]).get(path[i+1]))[0];
+            totalTaxiPrice+=(db.database.get(path[i]).get(path[i+1]))[1];
+            totalBusTime+=(db.database.get(path[i]).get(path[i+1]))[3];
+            totalBusPrice+=(db.database.get(path[i]).get(path[i+1]))[2];
+            totalWalkTime+=(db.database.get(path[i]).get(path[i+1]))[5];
 
         }
 //        System.out.println("route: "+Arrays.toString(path)+"\ntime: "+totalBusTime+
@@ -193,33 +188,33 @@ public class Algo {
     }
 
     public void detailBudget(double budget){
-        int currentTime=bestTaxiTime;
-        double currentPrice=bestTaxiPrice;
-        int[] transport= new int[bestRoute.length-1];
+        currentTime=bestTaxiTime;
+        currentPrice=bestTaxiPrice;
+        transport= new int[bestRoute.length-1];
 
-        for (int i=0;i<transport.length;i++)transport[i]=R.drawable.car_icon;
+        for (int i=0;i<transport.length;i++)transport[i]=0;
         if (budget>=currentPrice){
             //System.out.println("taxi all the way");
             //System.out.println("Price:"+bestTaxiPrice);
             //System.out.println("Time:"+bestTaxiTime);
         } else if(budget<currentPrice){
            for (int i=0;i<transport.length;i++) {
-               transport[i]=R.drawable.bus_icon;
-               currentTime-=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[1];
-               currentTime+=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[3];
-               currentPrice-=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[0];
-               currentPrice+=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[2];
+               transport[i]=2;
+               currentTime-=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[1];
+               currentTime+=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[3];
+               currentPrice-=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[0];
+               currentPrice+=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[2];
                if (budget>=currentPrice)break;
            }
             //System.out.println(currentPrice);
         }
         if(budget<currentPrice){
             for (int i=0;i<transport.length;i++) {
-                transport[i]=R.drawable.walk_icon;
-                currentTime-=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[3];
-                currentTime+=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[5];
-                currentPrice-=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[2];
-                //currentPrice+=(MyDatabase.database.get(bestRoute[i]).get(bestRoute[i+1]))[4]; is zero
+                transport[i]=4;
+                currentTime-=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[3];
+                currentTime+=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[5];
+                currentPrice-=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[2];
+                //currentPrice+=(db.database.get(bestRoute[i]).get(bestRoute[i+1]))[4]; is zero
                 if (budget>=currentPrice)break;
             }
         }
@@ -230,23 +225,6 @@ public class Algo {
         System.out.println("Time: "+currentTime+ " minutes");
     }
 
-    public ArrayList<ItemRoute> getBestPath(String[] arr, double budget, String hotel) {
-        (new MyDatabase()).run();
-        //System.out.println(  Arrays.toString((MyDatabase.database.get("Marina Bay Sands").get("Vivocity")))  );
-        //anagram("","cde");
-        //permute(new int[]{1,2,3});
-        int[] dily = new int[arr.length];
-        for (int i=1; i<=arr.length;i++){
-            dily[i-1]=i;
-        }
-        permute(dily,arr);
-        //getPriceAndTime(arr);
-        //System.out.println("Best Time: "+bestTime);
-        //System.out.println("Best Route: "+Arrays.toString(bestRoute) );
-        detailBudget(budget);  //prints the output.
-
-        return new ArrayList<ItemRoute>();
-    }
     public String[] addHotel(String[] arr){
         String[] out=new String[arr.length+2];
         out[0]=hotel;
@@ -259,16 +237,54 @@ public class Algo {
         return out;
     }
 
-    Algo(){}
-
-    public static void main(String[] args) {
-        Algo name=new Algo();
-        name.hotel= "Resort World Sentosa Casino";
-        System.out.println(Arrays.toString(name.addHotel( new String[] {"Wonder Full at Marina Bay Sands",
-                "ArtScience Museum","Singapore Zoo","Singapore Flyer"})));
-        name.getBestPath(new String[]{"Wonder Full at Marina Bay Sands",
-                "ArtScience Museum","Singapore Zoo","Singapore Flyer"}, 0.6, "Singapore Zoo");
+    public Algo() {
+        this.db = new MyDatabase();
     }
 
+    public Algo(MyDatabase db) {
+        this.db = db;
+    }
 
+    public ArrayList<ItemRoute> getBestPath(String[] arr, double budget, String hotel,
+                                            String[] overallRouteInfo) {
+        this.hotel= hotel;
+        int[] dily = new int[arr.length];
+        for (int i=1; i<=arr.length;i++){
+            dily[i-1]=i;
+        }
+        permute(dily,arr);
+        detailBudget(budget);
+
+        overallRouteInfo[0] = String.format("Total travel cost: $%.2f\nTotal travel time: %d minutes",
+                this.currentPrice, this.currentTime);
+
+        ArrayList<ItemRoute> itemRoutes = new ArrayList<ItemRoute>();
+        String source, dest, routeInfo, pathType;
+        int tMode, picture;
+
+        for (int i = 0; i < this.transport.length; i++) {
+            source = this.bestRoute[i];
+            dest = this.bestRoute[i+1];
+            tMode = this.transport[i];
+            switch (tMode) {
+                case 0: picture = R.drawable.car_icon; pathType = "Taxi"; break;
+                case 2: picture = R.drawable.bus_icon; pathType = "Bus"; break;
+                case 4: picture = R.drawable.walk_icon; pathType = "Walking"; break;
+                default: picture = R.drawable.walk_icon; pathType = "Walking";
+            }
+            routeInfo = String.format("%s cost: $%.2f\nTravel time: %.0f minutes", pathType,
+                    db.database.get(source).get(dest)[tMode],
+                    db.database.get(source).get(dest)[tMode+1]);
+            itemRoutes.add(new ItemRoute(source, picture, routeInfo));
+        }
+        itemRoutes.add(new ItemRoute("Hotel: "+this.bestRoute[0], 0, ""));
+
+        return itemRoutes;
+    }
+
+    public static void main(String[] args) {
+        Algo algo = new Algo();
+        algo.getBestPath(new String[]{"Wonder Full at Marina Bay Sands", "ArtScience Museum",
+                "Singapore Zoo", "Singapore Flyer"}, 0.6, "Bukit Timah Nature Reserve", new String[1]);
+    }
 }

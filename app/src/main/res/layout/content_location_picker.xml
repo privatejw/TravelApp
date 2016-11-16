@@ -43,21 +43,6 @@
         android:layout_alignParentStart="true"
         android:textColor="@android:color/background_light" />
 
-    <TextView
-        android:text="Hotel:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:layout_above="@+id/btnPlanRoute"
-        android:layout_alignLeft="@+id/btnPlanRoute"
-        android:layout_alignStart="@+id/btnPlanRoute"
-        android:layout_below="@+id/txtBudget"
-        android:layout_toLeftOf="@+id/txtHotel"
-        android:layout_toStartOf="@+id/txtHotel"
-        android:gravity="center_vertical"
-        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-        android:textSize="18sp" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,32 +51,49 @@
         android:id="@+id/txtBudget"
         android:hint="0.00"
         android:layout_above="@+id/txtHotel"
-        android:layout_alignLeft="@+id/txtHotel"
-        android:layout_alignStart="@+id/txtHotel" />
+        android:textSize="18sp"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
 
     <TextView
-        android:text="Fare Budget: $"
+        android:text="Hotel:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_above="@+id/btnPlanRoute" />
+
+    <TextView
+        android:text="Budget: $"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
-        android:layout_alignTop="@+id/txtBudget"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_above="@+id/txtHotel"
-        android:layout_toLeftOf="@+id/txtBudget"
-        android:layout_toStartOf="@+id/txtBudget"
         android:gravity="center_vertical"
         android:textAppearance="@style/TextAppearance.AppCompat.Menu"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/txtBudget"
+        android:layout_alignLeft="@+id/btnPlanRoute"
+        android:layout_alignStart="@+id/btnPlanRoute"
+        android:layout_above="@+id/txtHotel" />
 
     <AutoCompleteTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Marina Bay Sands"
+        android:text="Universal Studios Singapore"
         android:ems="10"
         android:id="@+id/txtHotel"
+        android:textSize="18sp"
         android:layout_above="@+id/btnPlanRoute"
         android:layout_alignRight="@+id/btnPlanRoute"
-        android:layout_alignEnd="@+id/btnPlanRoute" />
+        android:layout_alignEnd="@+id/btnPlanRoute"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
 </RelativeLayout>
