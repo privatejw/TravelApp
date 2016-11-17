@@ -4,23 +4,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/trip_planner"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@android:drawable/ic_menu_search"
             android:title="Trip Planner" />
         <item
             android:id="@+id/map_location"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@android:drawable/ic_menu_compass"
             android:title="Location" />
         <item
             android:id="@+id/user_reviews"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_media_route_connecting_05_light"
             android:title="User Reviews" />
         <item
             android:id="@+id/bus_timings"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="?android:attr/actionModeCopyDrawable"
             android:title="Bus Timings" />
         <item
             android:id="@+id/book_a_taxi"
-            android:icon="@drawable/ic_speaker_light"
+            android:icon="@android:drawable/sym_action_call"
             android:title="Book a Taxi" />
     </group>
 
