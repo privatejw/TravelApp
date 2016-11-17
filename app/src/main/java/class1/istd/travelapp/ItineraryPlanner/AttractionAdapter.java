@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -50,13 +51,13 @@ public class AttractionAdapter extends BaseAdapter {
             view = mInflater.inflate(R.layout.list_item_attraction, null);
             holder = new ViewHolder();
             holder.item_name = (TextView) view.findViewById(R.id.item_name);
-            holder.item_description = (TextView) view.findViewById(R.id.item_description);
+            holder.itemAttractionRatingBar = (RatingBar) view.findViewById(R.id.itemAttractionRatingBar);
             holder.toggleBtn = (ToggleButton) view.findViewById(R.id.toggleBtn);
 
             ItemAttraction row_pos = itemAttractions.get(i);
 
             holder.item_name.setText(row_pos.getItem_name());
-            holder.item_description.setText(row_pos.getItem_description());
+            holder.itemAttractionRatingBar.setRating(row_pos.getItem_rating());
             holder.toggleBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -71,7 +72,7 @@ public class AttractionAdapter extends BaseAdapter {
 
         ItemAttraction itemAttraction = itemAttractions.get(i);
         holder.item_name.setText(itemAttraction.getItem_name());
-        holder.item_description.setText(itemAttraction.getItem_description());
+        holder.itemAttractionRatingBar.setRating(itemAttraction.getItem_rating());
         holder.toggleBtn.setChecked(itemAttraction.isSelected());
         holder.toggleBtn.setTag(itemAttraction);
 
@@ -79,9 +80,8 @@ public class AttractionAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        ImageView item_image;
         TextView item_name;
-        TextView item_description;
+        RatingBar itemAttractionRatingBar;
         ToggleButton toggleBtn;
     }
 }

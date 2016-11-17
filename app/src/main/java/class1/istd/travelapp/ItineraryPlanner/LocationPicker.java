@@ -49,7 +49,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
         String[] attraction = getResources().getStringArray(R.array.item_attractions);
 
         for (String anItem_name : attraction) {
-            itemAttractions.add(new ItemAttraction(anItem_name, "Stars go here"));
+            itemAttractions.add(new ItemAttraction(anItem_name, 5));
         }
 
         listAttractions = (ListView) findViewById(R.id.listAttractions);

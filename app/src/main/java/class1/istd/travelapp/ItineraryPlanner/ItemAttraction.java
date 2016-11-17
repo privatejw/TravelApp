@@ -2,12 +2,12 @@ package class1.istd.travelapp.ItineraryPlanner;
 
 public class ItemAttraction {
     private String item_name;
-    private String item_description;
+    private int item_rating;
     private boolean selected;
 
-    public ItemAttraction(String item_name, String item_description) {
+    public ItemAttraction(String item_name, int item_rating) {
         this.item_name = item_name;
-        this.item_description = item_description;
+        this.item_rating = item_rating;
         this.selected = false;
     }
 
@@ -15,8 +15,8 @@ public class ItemAttraction {
         return item_name;
     }
 
-    public String getItem_description() {
-        return item_description;
+    public int getItem_rating() {
+        return item_rating;
     }
 
     public void setSelected(boolean s) {
