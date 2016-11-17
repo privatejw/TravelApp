@@ -12,7 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import class1.istd.travelapp.BusTimings.BusTimings;
 
 
 public class BaseActivity extends AppCompatActivity implements
@@ -99,7 +100,8 @@ public class BaseActivity extends AppCompatActivity implements
         } else if (id == R.id.user_reviews) {
 
         } else if (id == R.id.bus_timings) {
-
+            startActivity(new Intent(getApplicationContext(), BusTimings.class));
+            finish();
         } else if (id == R.id.sign_out) {
 
         }

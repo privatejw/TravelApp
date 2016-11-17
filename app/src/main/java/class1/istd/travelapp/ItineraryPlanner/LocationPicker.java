@@ -41,6 +41,10 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setLogo(R.drawable.ic_menu_send);
             getSupportActionBar().setDisplayUseLogoEnabled(true);
+            getSupportActionBar().hide();
+            getSupportActionBar().show();
+        } else {
+            Log.i("No action bar", "oh dear");
         }
 
         // row items start

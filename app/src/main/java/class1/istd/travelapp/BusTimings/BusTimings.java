@@ -1,7 +1,6 @@
-package com.example.student.travel_app;
+package class1.istd.travelapp.BusTimings;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +22,10 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BusTimings extends AppCompatActivity {
+import class1.istd.travelapp.BaseActivity;
+import class1.istd.travelapp.R;
+
+public class BusTimings extends BaseActivity {
     Button getTime;
     EditText busStop;
     EditText bus;
@@ -35,7 +37,17 @@ public class BusTimings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_busTimings);
+        setContentView(R.layout.activity_bus_timings);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setLogo(R.drawable.ic_menu_send);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+            getSupportActionBar().hide();
+            getSupportActionBar().show();
+        } else {
+            Log.i("No action bar", "oh dear");
+        }
+
         getTime = (Button) findViewById(R.id.getTime);
         getTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +127,7 @@ public class BusTimings extends AppCompatActivity {
                             if (busDate == curDate){
                                 int waitTime = Math.abs(busTime - curTime) / 60;
                                 if (waitTime != 0){
-                                timing += "Next Bus: " + waitTime + " minute(s)\n";}
+                                    timing += "Next Bus: " + waitTime + " minute(s)\n";}
                                 else{
                                     timing += "Next Bus: Arriving\n";
                                 }

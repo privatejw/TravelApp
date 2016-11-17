@@ -155,4 +155,5 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="title_activity_display_route">DisplayRoute</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_bus_timings2">BusTimings2</string>
 </resources>
