@@ -28,12 +28,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import class1.istd.travelapp.Algo;
+import class1.istd.travelapp.BaseActivity;
 import class1.istd.travelapp.MyDatabase;
 import class1.istd.travelapp.R;
 
-public class LocationPicker extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        AdapterView.OnItemClickListener{
+public class LocationPicker extends BaseActivity implements AdapterView.OnItemClickListener{
     ListView listAttractions;
     AttractionAdapter adapter;
     EditText txtBudget;
@@ -42,20 +41,22 @@ public class LocationPicker extends AppCompatActivity
     Algo algo;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_picker);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setLogo(R.drawable.ic_menu_send);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+        }
 
         // row items start
         List<ItemAttraction> itemAttractions = new ArrayList<ItemAttraction>();
 
-        String[] item_name = getResources().getStringArray(R.array.item_attractions);
+        String[] attraction = getResources().getStringArray(R.array.item_attractions);
 
-        for (int i=0; i < item_name.length; i++) {
-            ItemAttraction item = new ItemAttraction(item_name[i], "Stars go here");
-            itemAttractions.add(item);
+        for (String anItem_name : attraction) {
+            itemAttractions.add(new ItemAttraction(anItem_name, "Stars go here"));
         }
 
         listAttractions = (ListView) findViewById(R.id.listAttractions);
@@ -64,17 +65,6 @@ public class LocationPicker extends AppCompatActivity
 
         listAttractions.setOnItemClickListener(this);
         // row items end
-
-        // drawer start
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        // drawer end
 
         // other ui elements start
         txtBudget = (EditText) findViewById(R.id.txtBudget);
@@ -108,63 +98,6 @@ public class LocationPicker extends AppCompatActivity
         String locationClicked = ((ItemAttraction) adapter.getItem(i)).getItem_name();
         Toast.makeText(getApplicationContext(), locationClicked, Toast.LENGTH_SHORT).show();
         //TODO: put extra and add new intent to review screen
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.location_picker, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     public void btnPlanRouteClicked(View view) {

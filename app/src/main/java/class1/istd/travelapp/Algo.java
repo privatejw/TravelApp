@@ -273,7 +273,7 @@ public class Algo {
                     db.database.get(source).get(dest)[tMode+1]);
             itemRoutes.add(new ItemRoute(source, picture, routeInfo));
         }
-        itemRoutes.add(new ItemRoute("Hotel: "+this.bestRoute[0], 0, ""));
+        itemRoutes.add(new ItemRoute(this.bestRoute[0], 0, ""));
 
         return itemRoutes;
     }
