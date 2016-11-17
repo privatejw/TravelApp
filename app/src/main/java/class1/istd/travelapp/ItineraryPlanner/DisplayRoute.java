@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -20,7 +19,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import class1.istd.travelapp.Location.ExtraMapActivity;
 import class1.istd.travelapp.R;
 
 public class DisplayRoute extends AppCompatActivity implements AdapterView.OnItemClickListener{

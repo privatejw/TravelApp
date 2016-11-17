@@ -1,4 +1,4 @@
-package class1.istd.travelapp.Location;
+package class1.istd.travelapp.ItineraryPlanner;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;

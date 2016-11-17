@@ -37,7 +37,7 @@
             android:name=".ItineraryPlanner.DisplayRoute"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Location.ExtraMapActivity"
+            android:name=".ItineraryPlanner.ExtraMapActivity"
             android:label="@string/title_activity_maps"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
