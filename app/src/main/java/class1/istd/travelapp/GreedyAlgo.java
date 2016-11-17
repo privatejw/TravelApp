@@ -51,13 +51,10 @@ public class GreedyAlgo {
 //            WalkTime=(db.database.get(arr[i]).get(arr[i+1]))[4];
 //        }
         transport = new int[arr.length-1];
-        System.out.println("HOOO " + totalPrice);
-        System.out.println("HEEEEEE " + totalTime);
         for (int i=0 ; i < transport.length;i++){
             transport[i] = 4;
             totalTime += (db.database.get(arr[i]).get(arr[i+1]))[5];
         }
-        System.out.println("HEEEEEE WALK " + totalTime);
 
         if (totalPrice < budget) {
             for (int i = 0; i < arr.length-1; i++) {
@@ -75,8 +72,6 @@ public class GreedyAlgo {
 
             }
         }
-        System.out.println("PRICE 1111111 " + totalPrice);
-        System.out.println("TIME 11111111 " + totalTime);
         if (totalPrice<budget){
             for (int i = 0; i < arr.length-1; i++) {
                 transport[i] = 0;
@@ -96,8 +91,6 @@ public class GreedyAlgo {
             }
 
         }
-        System.out.println("PRICE 2222222 " + totalPrice);
-        System.out.println("TIME 22222222 " + totalTime);
 
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.toString(transport));
@@ -117,7 +110,14 @@ public class GreedyAlgo {
         a.add("Wonder Full at Marina Bay Sands");
         a.add("ArtScience Museum");
         a.add("Singapore Zoo");
+        a.add("Al-Abrar Mosque");
+        a.add("Asian Civilisations Museum");
+        a.add("Changi Prison Chapel and Museum");
         a.add("Singapore Flyer");
+        a.add("Central Sikh Temple");
+        a.add("Chinatown Heritage Centre");
+        a.add("East Coast Park");
+
         String[] path = Galgo.bestpath((ArrayList<String>) a.clone(), "Bukit Timah Nature Reserve");
         Galgo.getBestRoute(a,1, "Bukit Timah Nature Reserve");
     }
