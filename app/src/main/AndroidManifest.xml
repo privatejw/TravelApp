@@ -39,13 +39,22 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ItineraryPlanner.ExtraMapActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BusTimings.BusTimings"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_bus_timings"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".BookATaxi.BookATaxi"
             android:label="@string/title_activity_book_ataxi2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Location.LocationPlaceHolder"
+            android:label="@string/title_activity_location_place_holder"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserReviews.UserReviewPlaceHolder"
+            android:label="@string/title_activity_user_review_place_holder"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

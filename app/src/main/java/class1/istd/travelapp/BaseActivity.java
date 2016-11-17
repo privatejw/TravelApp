@@ -13,10 +13,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import class1.istd.travelapp.BookATaxi.BookATaxi;
 import class1.istd.travelapp.BusTimings.BusTimings;
 import class1.istd.travelapp.ItineraryPlanner.LocationPicker;
+import class1.istd.travelapp.Location.LocationPlaceHolder;
+import class1.istd.travelapp.UserReviews.UserReviewPlaceHolder;
 
 
 public class BaseActivity extends AppCompatActivity implements
@@ -92,6 +95,7 @@ public class BaseActivity extends AppCompatActivity implements
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "Gotcha!", Toast.LENGTH_SHORT).show();
             return true;
         }
 
@@ -108,9 +112,11 @@ public class BaseActivity extends AppCompatActivity implements
             startActivity(new Intent(getApplicationContext(), LocationPicker.class));
             finish();
         } else if (id == R.id.map_location) {
-
+            startActivity(new Intent(getApplicationContext(), LocationPlaceHolder.class));
+            finish();
         } else if (id == R.id.user_reviews) {
-
+            startActivity(new Intent(getApplicationContext(), UserReviewPlaceHolder.class));
+            finish();
         } else if (id == R.id.bus_timings) {
             startActivity(new Intent(getApplicationContext(), BusTimings.class));
             finish();
@@ -118,7 +124,7 @@ public class BaseActivity extends AppCompatActivity implements
             startActivity(new Intent(getApplicationContext(), BookATaxi.class));
             finish();
         } else if (id == R.id.sign_out) {
-            
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

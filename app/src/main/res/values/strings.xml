@@ -153,8 +153,10 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_display_route">DisplayRoute</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="title_activity_bus_timings2">BusTimings2</string>
+    <string name="title_activity_display_route">Display Route</string>
+    <string name="title_activity_maps">Maps Activity</string>
+    <string name="title_activity_bus_timings">Bus Timings</string>
     <string name="title_activity_book_ataxi2">Book a Taxi</string>
+    <string name="title_activity_location_place_holder">Location Finder</string>
+    <string name="title_activity_user_review_place_holder">User Reviews</string>
 </resources>
