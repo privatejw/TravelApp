@@ -1,18 +1,9 @@
 package class1.istd.travelapp.ItineraryPlanner;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -29,6 +20,7 @@ import java.util.List;
 
 import class1.istd.travelapp.Algo;
 import class1.istd.travelapp.BaseActivity;
+import class1.istd.travelapp.SearchFunction;
 import class1.istd.travelapp.MyDatabase;
 import class1.istd.travelapp.R;
 
@@ -39,6 +31,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
     AutoCompleteTextView txtHotel;
     Button btnPlanRoute;
     Algo algo;
+    SearchFunction searchFunction;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -87,6 +80,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
         try {
             MyDatabase db = new MyDatabase(new InputStreamReader(getAssets().open("finalDatabase")));
             algo = new Algo(db);
+            searchFunction = new SearchFunction(getResources().getStringArray(R.array.item_attractions));
         } catch (IOException e) {
             Log.e("failed to load database", ": nooo");
         }
@@ -121,12 +115,18 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
         if (placesToVisit.isEmpty()) {
             Toast.makeText(getApplicationContext(),
                     "Please select at least 1 location", Toast.LENGTH_SHORT).show();
-        } else if (!Arrays.asList(locations).contains(hotel)) {
-            Toast.makeText(getApplicationContext(), "Invalid Hotel", Toast.LENGTH_SHORT).show();
         } else {
+            // implement robust checking
+            if (!Arrays.asList(locations).contains(hotel)) {
+                hotel = searchFunction.search(hotel);
+                Toast.makeText(getApplicationContext(), "Hotel changed to: "+hotel, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Path found!", Toast.LENGTH_SHORT).show();
+            }
             // get the item routes
             String[] overallRouteInfo = new String[1];
-            ArrayList<ItemRoute> itemRoutes = planRoute(budget, hotel, placesToVisit, overallRouteInfo);
+            ArrayList<ItemRoute> itemRoutes = algo.getBestPath(placesToVisit.toArray(
+                    new String[placesToVisit.size()]), budget, hotel, overallRouteInfo);
 
             // add the route information and start the new activity
             Intent newIntent = new Intent(getApplicationContext(), DisplayRoute.class);
@@ -138,9 +138,6 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
 
     public ArrayList<ItemRoute> planRoute(double budget, String hotel,
                 ArrayList<String> placesToVisit, String[] overallRouteInfo) {
-        Toast.makeText(getApplicationContext(),
-                "Path found!", Toast.LENGTH_SHORT).show();
-
         ArrayList<ItemRoute> itemRoutes = algo.getBestPath(
                 placesToVisit.toArray(new String[placesToVisit.size()]), budget, hotel, overallRouteInfo);
 
