@@ -38,15 +38,6 @@ public class BusTimings extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_timings);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setLogo(R.drawable.ic_menu_send);
-            getSupportActionBar().setDisplayUseLogoEnabled(true);
-            getSupportActionBar().hide();
-            getSupportActionBar().show();
-        } else {
-            Log.i("No action bar", "oh dear");
-        }
 
         getTime = (Button) findViewById(R.id.getTime);
         getTime.setOnClickListener(new View.OnClickListener() {

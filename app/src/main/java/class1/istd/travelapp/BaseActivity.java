@@ -10,10 +10,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import class1.istd.travelapp.BookATaxi.BookATaxi;
 import class1.istd.travelapp.BusTimings.BusTimings;
+import class1.istd.travelapp.ItineraryPlanner.LocationPicker;
 
 
 public class BaseActivity extends AppCompatActivity implements
@@ -23,6 +26,15 @@ public class BaseActivity extends AppCompatActivity implements
     protected void onCreateDrawer() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setLogo(R.drawable.ic_menu_send);
+            getSupportActionBar().setDisplayUseLogoEnabled(true);
+            getSupportActionBar().hide();
+            getSupportActionBar().show();
+        } else {
+            Log.i("No action bar", "oh dear");
+        }
 
         // drawer start
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,7 +105,7 @@ public class BaseActivity extends AppCompatActivity implements
         int id = item.getItemId();
 
         if (id == R.id.trip_planner) {
-            startActivity(new Intent(getApplicationContext(), class1.istd.travelapp.ItineraryPlanner.LocationPicker.class));
+            startActivity(new Intent(getApplicationContext(), LocationPicker.class));
             finish();
         } else if (id == R.id.map_location) {
 
@@ -102,8 +114,11 @@ public class BaseActivity extends AppCompatActivity implements
         } else if (id == R.id.bus_timings) {
             startActivity(new Intent(getApplicationContext(), BusTimings.class));
             finish();
+        } else if (id == R.id.book_a_taxi) {
+            startActivity(new Intent(getApplicationContext(), BookATaxi.class));
+            finish();
         } else if (id == R.id.sign_out) {
-
+            
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

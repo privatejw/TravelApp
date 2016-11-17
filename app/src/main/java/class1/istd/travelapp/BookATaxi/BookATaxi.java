@@ -1,14 +1,16 @@
-package com.example.student.bookataxi;
+package class1.istd.travelapp.BookATaxi;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class BookATaxi extends AppCompatActivity {
+import class1.istd.travelapp.BaseActivity;
+import class1.istd.travelapp.R;
+
+public class BookATaxi extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bookataxi);
-
+        setContentView(R.layout.activity_book_ataxi);
     }
+
 }

@@ -18,6 +18,10 @@
             android:id="@+id/bus_timings"
             android:icon="@drawable/ic_menu_manage"
             android:title="Bus Timings" />
+        <item
+            android:id="@+id/book_a_taxi"
+            android:icon="@drawable/ic_speaker_light"
+            android:title="Book a Taxi" />
     </group>
 
     <item android:title="Account">

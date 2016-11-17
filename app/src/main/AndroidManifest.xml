@@ -39,12 +39,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ItineraryPlanner.ExtraMapActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".BusTimings.BusTimings"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".BookATaxi.BookATaxi"
+            android:label="@string/title_activity_book_ataxi2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

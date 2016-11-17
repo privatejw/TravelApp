@@ -37,15 +37,6 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_picker);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setLogo(R.drawable.ic_menu_send);
-            getSupportActionBar().setDisplayUseLogoEnabled(true);
-            getSupportActionBar().hide();
-            getSupportActionBar().show();
-        } else {
-            Log.i("No action bar", "oh dear");
-        }
 
         // row items start
         List<ItemAttraction> itemAttractions = new ArrayList<ItemAttraction>();
