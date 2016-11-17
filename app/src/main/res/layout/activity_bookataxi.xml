@@ -119,7 +119,7 @@
                 android:background="#5f8bbe">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Basic Fare"
                     android:id="@+id/textView4"
@@ -164,7 +164,7 @@
                 android:background="#c5c5c5">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Flag-Down (inclusive of 1st km or less)"
                     android:id="@+id/textView8"
@@ -202,7 +202,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Every 400m thereafter or less up to 10km"
                     android:id="@+id/textView12"
@@ -241,7 +241,7 @@
                 android:background="#c5c5c5">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Every 350 metres thereafter or less after 10 km"
                     android:id="@+id/textView16"
@@ -279,7 +279,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Every 45 secs of waiting or less"
                     android:id="@+id/textView20"
@@ -323,7 +323,7 @@
                 android:background="#5f8bbe">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Booking fees"
                     android:id="@+id/textView54"
@@ -366,7 +366,7 @@
                 android:background="#c5c5c5">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Mon – Fri: 6.00am to 9:30am"
                     android:id="@+id/textView58"
@@ -404,7 +404,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Mon – Sun &amp; Public Holidays: 6.00pm to midnight	"
                     android:id="@+id/textView62"
@@ -443,7 +443,7 @@
                 android:background="#c5c5c5">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="All other times\n(including Sat, Sun &amp; Public Holidays)"
                     android:id="@+id/textView66"
@@ -481,7 +481,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="130dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="Advanced Bookings\n(at least half an hour in advance)"
                     android:id="@+id/textView70"
