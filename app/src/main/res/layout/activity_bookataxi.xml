@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.student.bookataxi.BookATaxi">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/comfortdelgrologo"
+                android:foregroundGravity="center" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageView2"
+                android:src="@drawable/smrtlogo"
+                android:foregroundGravity="center" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/transcablogo"
+                android:foregroundGravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="+65 6552 1111"
+                android:id="@+id/comfortNo"
+                android:foregroundGravity="center"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:autoLink="phone" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="+65 6555 8888"
+                android:id="@+id/smrtNo"
+                android:foregroundGravity="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:autoLink="phone" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="30dp"
+                android:text="+65 6555 3333"
+                android:id="@+id/transcabNo"
+                android:foregroundGravity="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:autoLink="phone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Click the link below to view a list of public holidays in Singapore:"
+                android:id="@+id/textView"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="http://www.mom.gov.sg/employment-practices/public-holidays"
+                android:id="@+id/textView2"
+                android:textSize="10dp"
+                android:autoLink="web" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Basic Fare"
+                    android:id="@+id/textView4"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:id="@+id/textView5"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Limousine"
+                    android:id="@+id/textView6"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Chrysler"
+                    android:id="@+id/textView7"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Flag-Down (inclusive of 1st km or less)"
+                    android:id="@+id/textView8"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.00-$3.40"
+                    android:id="@+id/textView9"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.90"
+                    android:id="@+id/textView10"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$5.00"
+                    android:id="@+id/textView11"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Every 400m thereafter or less up to 10km"
+                    android:id="@+id/textView12"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView13"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView14"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.33"
+                    android:id="@+id/textView15"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Every 350 metres thereafter or less after 10 km"
+                    android:id="@+id/textView16"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView17"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView18"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.33"
+                    android:id="@+id/textView19"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Every 45 secs of waiting or less"
+                    android:id="@+id/textView20"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView21"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.22"
+                    android:id="@+id/textView22"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$0.33"
+                    android:id="@+id/textView23"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView74" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Booking fees"
+                    android:id="@+id/textView54"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+                    android:id="@+id/textView55"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Limousine"
+                    android:id="@+id/textView56"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="Chrysler"
+                    android:id="@+id/textView57"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mon – Fri: 6.00am to 9:30am"
+                    android:id="@+id/textView58"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.30"
+                    android:id="@+id/textView59"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView60"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView61"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mon – Sun &amp; Public Holidays: 6.00pm to midnight	"
+                    android:id="@+id/textView62"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.30"
+                    android:id="@+id/textView63"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView64"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView65"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="All other times\n(including Sat, Sun &amp; Public Holidays)"
+                    android:id="@+id/textView66"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$2.30"
+                    android:id="@+id/textView67"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView68"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$10.00"
+                    android:id="@+id/textView69"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="Advanced Bookings\n(at least half an hour in advance)"
+                    android:id="@+id/textView70"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$8.00"
+                    android:id="@+id/textView71"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$18.00"
+                    android:id="@+id/textView72"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:text="$20.00"
+                    android:id="@+id/textView73"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView75" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Midnight subcharge"
+                    android:id="@+id/textView24"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Additional"
+                    android:id="@+id/textView25"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Midnight to 5.59am"
+                    android:id="@+id/textView26"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="50% of metered fare"
+                    android:id="@+id/textView27"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Applicable at the time of boarding."
+                android:id="@+id/textView79"
+                android:textSize="7dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView76" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Peak hour surcharge"
+                    android:id="@+id/textView28"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Additional"
+                    android:id="@+id/textView29"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mon – Fri: 6.00am to 9.30am"
+                    android:id="@+id/textView30"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="25% of metered fare"
+                    android:id="@+id/textView31"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mon – Sun &amp; Public Holidays: 6.00pm to midnight"
+                    android:id="@+id/textView32"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="25% of metered fare"
+                    android:id="@+id/textView33"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Applicable at the time of boarding."
+                android:id="@+id/textView80"
+                android:textSize="7dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView77" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="City area surcharge"
+                    android:id="@+id/textView34"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Additional"
+                    android:id="@+id/textView35"
+                    android:gravity="center"
+                    android:textSize="15dp"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Mon – Sun &amp; Public Holidays: 5.00pm to midnight"
+                    android:id="@+id/textView36"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.00"
+                    android:id="@+id/textView37"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Applicable for all trips starting from city area and Marina Bay Sands and is payable on top of the Peak Hour Surcharge."
+                android:id="@+id/textView81"
+                android:textSize="7dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView78" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#5f8bbe">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Location surcharges"
+                    android:id="@+id/textView38"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Additional"
+                    android:id="@+id/textView39"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Changi Airport &amp; Changi Air Freight Centre"
+                    android:id="@+id/textView42"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView43"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fri – Sun: 5.00pm to midnight \nAt all other times"
+                    android:id="@+id/textView40"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$5.00\n$3.00"
+                    android:id="@+id/textView41"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Seletar Airport"
+                    android:id="@+id/textView44"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.00"
+                    android:id="@+id/textView45"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Marina Bay Sands"
+                    android:id="@+id/textView46"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView47"
+                    android:gravity="center"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sun &amp; Public Holidays: 6.00am to 4.59pm"
+                    android:id="@+id/textView48"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.00"
+                    android:id="@+id/textView49"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Resorts World Sentosa"
+                    android:id="@+id/textView50"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$3.00"
+                    android:id="@+id/textView51"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#c5c5c5">
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="Singapore Expo Centre"
+                    android:id="@+id/textView52"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="175dp"
+                    android:layout_height="wrap_content"
+                    android:text="$2.00"
+                    android:id="@+id/textView53"
+                    android:textSize="10dp"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
