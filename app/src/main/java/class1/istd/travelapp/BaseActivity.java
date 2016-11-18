@@ -18,7 +18,7 @@ import android.widget.Toast;
 import class1.istd.travelapp.BookATaxi.BookATaxi;
 import class1.istd.travelapp.BusTimings.BusTimings;
 import class1.istd.travelapp.ItineraryPlanner.LocationPicker;
-import class1.istd.travelapp.Location.LocationPlaceHolder;
+import class1.istd.travelapp.Location.MapActivity;
 import class1.istd.travelapp.UserReviews.UserReviewPlaceHolder;
 
 
@@ -112,7 +112,7 @@ public class BaseActivity extends AppCompatActivity implements
             startActivity(new Intent(getApplicationContext(), LocationPicker.class));
             finish();
         } else if (id == R.id.map_location) {
-            startActivity(new Intent(getApplicationContext(), LocationPlaceHolder.class));
+            startActivity(new Intent(getApplicationContext(), MapActivity.class));
             finish();
         } else if (id == R.id.user_reviews) {
             startActivity(new Intent(getApplicationContext(), UserReviewPlaceHolder.class));
