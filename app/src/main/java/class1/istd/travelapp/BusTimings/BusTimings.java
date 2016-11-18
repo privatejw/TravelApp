@@ -1,7 +1,10 @@
 package class1.istd.travelapp.BusTimings;
 
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -55,11 +58,18 @@ public class BusTimings extends BaseActivity {
                 else{
                     API = "http://datamall2.mytransport.sg/ltaodataservice/BusArrival?BusStopID=" + busStop.getText().toString() + "&ServiceNo=" + bus.getText().toString() + "&SST=True";
                     new DoGetProduct().execute();
-                    showTime.setText(timing);}
+//                    showTime.setText(timing);
+                }
             }
         });
-
     }
+    @SuppressLint("HandlerLeak")
+    protected Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            showTime.setText(msg.obj.toString());
+        }
+    };
 
     class DoGetProduct extends AsyncTask<Void, Void, Void> {
         @Override
@@ -86,8 +96,7 @@ public class BusTimings extends BaseActivity {
                 Matcher matcher = pattern.matcher(curTiming);
                 int curTime = 0;
                 int curDate = 0;
-                if (matcher.find())
-                {
+                if (matcher.find()) {
                     curDate = (Integer.parseInt(matcher.group(1)));
                     curTime += (Integer.parseInt(matcher.group(2)) * 60 * 60);
                     curTime += (Integer.parseInt(matcher.group(3)) * 60);
@@ -108,17 +117,18 @@ public class BusTimings extends BaseActivity {
                             Matcher matcher1 = pattern1.matcher(busTiming);
                             int busTime = 0;
                             int busDate = 0;
-                            if (matcher1.find())
-                            {
+                            if (matcher1.find()) {
                                 busDate = (Integer.parseInt(matcher1.group(1)));
                                 busTime += (Integer.parseInt(matcher1.group(2)) * 60 * 60);
                                 busTime += (Integer.parseInt(matcher1.group(3)) * 60);
                                 busTime += Integer.parseInt(matcher1.group(4));
                             }
+                            timing += "Bus comes at: " + matcher1.group(2) + "" +
+                                    matcher1.group(3) + "HRS\n";
                             if (busDate == curDate){
                                 int waitTime = Math.abs(busTime - curTime) / 60;
                                 if (waitTime != 0){
-                                    timing += "Next Bus: " + waitTime + " minute(s)\n";}
+                                    timing += "Waiting time: " + waitTime + " minute(s)\n";}
                                 else{
                                     timing += "Next Bus: Arriving\n";
                                 }
@@ -126,7 +136,7 @@ public class BusTimings extends BaseActivity {
                             else{
                                 int waitTime = Math.abs(busTime - (curTime - 24*60*60)) / 60;
                                 if (waitTime != 0){
-                                    timing += "Next Bus: " + waitTime + " minute(s)\n";}
+                                    timing += "Waiting time: " + waitTime + " minute(s)\n";}
                                 else{
                                     timing += "Next Bus: Arriving\n";
                                 }
@@ -164,6 +174,11 @@ public class BusTimings extends BaseActivity {
                                 }
                             }
                         }
+                        // send message to update text
+                        Message m = Message.obtain();
+                        m.obj = timing;
+                        handler.sendMessage(m);
+
                     } catch (Exception e) {
                         Log.d("error1", e.toString());
                     }

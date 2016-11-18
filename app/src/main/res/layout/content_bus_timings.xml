@@ -40,7 +40,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/busStop"
             android:layout_weight="1"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:inputType="number"
+            android:text="70271" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,7 +63,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/bus"
             android:layout_weight="1"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:inputType="number"
+            android:text="8" />
     </LinearLayout>
 
     <Button
