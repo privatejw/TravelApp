@@ -12,6 +12,9 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/travelapp_logo"
@@ -39,6 +42,12 @@
         <activity
             android:name=".ItineraryPlanner.DisplayRoute"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UserReviews.LocationReviews"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+        android:name=".UserReviews.AddReview"
+        android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ItineraryPlanner.ExtraMapActivity"
             android:theme="@style/AppTheme.NoActionBar" />

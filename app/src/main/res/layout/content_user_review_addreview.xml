@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0" />
+
+                <TextView
+                    android:text="Location: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView"
+                    android:layout_weight="0"
+                    android:textSize="17sp"
+                    android:textStyle="normal|bold" />
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/locationNameTextView"
+                    android:layout_weight="1"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/captureImgView"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:scaleType="centerCrop"
+                android:onClick="takePicture"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/add_image" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/thisRateBar"
+                    android:layout_weight="0"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:stepSize="1"
+                    style="@style/Widget.AppCompat.RatingBar"
+                    android:isIndicator="false" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:text="Review by "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4"
+                    android:layout_weight="0"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/nameEditText"
+                    android:layout_weight="0"
+                    android:hint="your name.." />
+
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="text|textCapSentences"
+                android:ems="10"
+                android:id="@+id/reviewEditText"
+                android:layout_weight="1"
+                android:singleLine="false"
+                style="@style/Widget.AppCompat.EditText"
+                android:elegantTextHeight="false"
+                android:layout_height="wrap_content"
+                android:hint="write your review here..."
+                android:textStyle="normal|italic" />
+
+            <Button
+                android:text="Send Review"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/submitButton"
+                android:onClick="submitReview"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -13,4 +13,20 @@
     tools:context="class1.istd.travelapp.UserReviews.UserReviewPlaceHolder"
     tools:showIn="@layout/app_bar_user_review_place_holder">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/overarchingLayout">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/locationListView" />
+    </LinearLayout>
+
 </RelativeLayout>
