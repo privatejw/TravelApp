@@ -13,6 +13,14 @@
     tools:context="class1.istd.travelapp.UserReviews.UserReviewPlaceHolder"
     tools:showIn="@layout/app_bar_user_review_place_holder">
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/locRatingsProgressBar"
+        android:indeterminate="true"
+        tools:visibility="invisible" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

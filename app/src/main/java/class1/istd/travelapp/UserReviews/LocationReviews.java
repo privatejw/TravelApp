@@ -23,8 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import class1.istd.travelapp.R;
 
@@ -33,13 +36,19 @@ public class LocationReviews extends AppCompatActivity {
     private String[] locParaList;
     private float[] locRatingList;
     private Bitmap[] locBitmapList;
-    private Uri[] locImgURI;
+//    private Uri[] locImgURI;
     private ArrayList<Bitmap> bitmapTempList = new ArrayList<>();
     private HashMap<String, Bitmap> bitmapHashMap = new HashMap<>();
     private String[] locImgURLList;
     private String titleString;
 //    private FeedAdapter newAdapt;
     private FeedStringAdapter newAdaper;
+
+    private String[] emptyStringName = {"Nobody "};
+    private String[] emptyStringUrl = {"images/100000000.jpg"};
+    private String[] emptyStringPara = {"There is currently no review on this place"};
+    private float[] emptyFloat = {0};
+    private Uri[] emptyUri;
 
 //    private Bitmap noImageBitmap;
 //    private int loadImgCounter;
@@ -59,10 +68,10 @@ public class LocationReviews extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_user_review_location);
 
-//        noImageBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.no_image);
-
         myDB = FirebaseDatabase.getInstance();
         myStorage = FirebaseStorage.getInstance();
+        emptyUri = new Uri[1];
+        emptyUri[0]=  Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.no_image);
 
         Bundle extra = getIntent().getExtras();
         if (extra!=null) {
@@ -116,54 +125,74 @@ public class LocationReviews extends AppCompatActivity {
         myDB = FirebaseDatabase.getInstance();
         locationRef = myDB.getReference("feeds").child(location);
 //        locationRef.addValueEventListener(new ValueEventListener() {
-        locationRef.addListenerForSingleValueEvent(locationRefListen = new ValueEventListener() {
+        locationRef.orderByKey().addListenerForSingleValueEvent(locationRefListen = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 HashMap<String, Object> getVal = (HashMap<String, Object>) dataSnapshot.getValue();
-                try {
+                if(getVal!=null) {
+                    try {
 //                    locAveRating
-                            rating = ((Long) getVal.get("currentRating")).floatValue();
-                } catch (Exception e) {
+                        rating = ((Long) getVal.get("currentRating")).floatValue();
+                    } catch (Exception e) {
 //                    locAveRating
-                            rating = ((Double) getVal.get("currentRating")).floatValue();
-                }
-                HashMap<Integer, HashMap> locData = (HashMap<Integer, HashMap>) getVal.get("reviews");
-                if (locData != null) {
-//                    intentGoTo(location);
-                    ArrayList<String> nameTempList = new ArrayList<>();
-                    ArrayList<String> paraTempList = new ArrayList<>();
-                    ArrayList<Float> ratingTempList = new ArrayList<>();
-                    ArrayList<String> urlTempList = new ArrayList<>();
-                    final ArrayList<Bitmap> bitmapTempList = new ArrayList<>();
-
-
-                    for (final HashMap<String, Object> feedInstance : locData.values()) {
-                        nameTempList.add((String) feedInstance.get("Name"));
-                        paraTempList.add((String) feedInstance.get("Review"));
-                        try {
-                            ratingTempList.add(((Long) feedInstance.get("Rating")).floatValue());
-                        } catch (Exception e) {
-                            ratingTempList.add(((Double) feedInstance.get("Rating")).floatValue());
-                        }
-                        urlTempList.add((String) feedInstance.get("ImageURL"));
-
-                        String[] newnamelist = nameTempList.toArray(new String[nameTempList.size()]);
-                        String[] newPara = paraTempList.toArray(new String[paraTempList.size()]);
-                        String[] newUrl = urlTempList.toArray(new String[urlTempList.size()]);
-                        Uri[] newURI = new Uri[urlTempList.size()];
-                        float[] newRatt = new float[ratingTempList.size()];
-                        if (ratingTempList.size() > 0) {
-                            newRatt = new float[ratingTempList.size()];
-                            for (int i = 0; i < ratingTempList.size(); i++) {
-                                newRatt[i] = ratingTempList.get(i);
-                            }
-                        }
-                        locNameList = newnamelist;
-                        locParaList = newPara;
-                        locImgURLList = newUrl;
-                        locRatingList = newRatt;
+                        rating = ((Double) getVal.get("currentRating")).floatValue();
                     }
+                    HashMap<Integer, HashMap> locData = (HashMap<Integer, HashMap>) getVal.get("reviews");
+                    if (locData != null) {
+
+//                    intentGoTo(location);
+                        ArrayList<String> nameTempList = new ArrayList<>();
+                        ArrayList<String> paraTempList = new ArrayList<>();
+                        ArrayList<Float> ratingTempList = new ArrayList<>();
+                        ArrayList<String> urlTempList = new ArrayList<>();
+                        final ArrayList<Bitmap> bitmapTempList = new ArrayList<>();
+                        for (final HashMap<String, Object> feedInstance : locData.values()) {
+
+                            nameTempList.add((String) feedInstance.get("Name"));
+                            paraTempList.add((String) feedInstance.get("Review"));
+                            try {
+                                ratingTempList.add(((Long) feedInstance.get("Rating")).floatValue());
+                            } catch (Exception e) {
+                                ratingTempList.add(((Double) feedInstance.get("Rating")).floatValue());
+                            }
+                            urlTempList.add((String) feedInstance.get("ImageURL"));
+
+                            String[] newnamelist = nameTempList.toArray(new String[nameTempList.size()]);
+                            String[] newPara = paraTempList.toArray(new String[paraTempList.size()]);
+                            String[] newUrl = urlTempList.toArray(new String[urlTempList.size()]);
+                            Uri[] newURI = new Uri[urlTempList.size()];
+                            float[] newRatt = new float[ratingTempList.size()];
+                            if (ratingTempList.size() > 0) {
+                                newRatt = new float[ratingTempList.size()];
+                                for (int i = 0; i < ratingTempList.size(); i++) {
+                                    newRatt[i] = ratingTempList.get(i);
+                                }
+                            }
+                            locNameList = newnamelist;
+                            locParaList = newPara;
+                            locImgURLList = newUrl;
+                            locRatingList = newRatt;
+                        }
+                        refreshFeedList();
+                    } else {
+                        locNameList = emptyStringName;
+                        locParaList = emptyStringPara;
+                        locRatingList = emptyFloat;
+                        locImgURLList = emptyStringUrl;
+                        refreshFeedList();
+                    }
+                } else {
+                    HashMap<String, Object> newPlace = new HashMap<String, Object>();
+                    newPlace.put("currentRating", 0.0);
+                    newPlace.put("totalReviews", 0);
+                    newPlace.put("totalRating", 0);
+                    locationRef.updateChildren(newPlace);
+                    locNameList = emptyStringName;
+                    locParaList = emptyStringPara;
+                    locRatingList = emptyFloat;
+                    locImgURLList = emptyStringUrl;
                     refreshFeedList();
+
                 }
             }
 
@@ -173,49 +202,6 @@ public class LocationReviews extends AppCompatActivity {
             }
         });
     }
-
-    public void loadOneImage(final int counter) {
-        final String path = locImgURLList[counter];
-        final long BYTE_LIMIT = 1024 * 1024;
-                            try {
-                                if (locImgURLList[counter] != null) {
-                                    StorageReference thisImgStored = myStorage.getReference(path);
-                                    thisImgStored.getBytes(BYTE_LIMIT).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                                        @Override
-                                        public void onSuccess(byte[] bytes) {
-                                            Bitmap thisbit = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//                                            bitmapTempList.add(thisbit);
-//                                            bitmapHashMap.put(path, thisbit);
-                                            locBitmapList[counter] = thisbit;
-                                            refreshFeedList();
-                                            if(counter+1<locImgURLList.length) {
-                                                loadOneImage(counter+1);
-                                            }
-
-                                        }
-                                    }).addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(getApplicationContext(), "ERO:" + e.getMessage(), Toast.LENGTH_LONG).show();
-                                            if(counter+1<locImgURLList.length) {
-                                                loadOneImage(counter+1);
-                                            }
-                                        }
-                                    });
-                                } else {
-                                    if(counter+1<locImgURLList.length) {
-                                        loadOneImage(counter+1);
-                                    }
-                                }
-
-                            } catch (Exception e) {
-                                Toast.makeText(getApplicationContext(), "EFRO:" + e.getMessage(), Toast.LENGTH_LONG).show();
-                                if(counter+1<locImgURLList.length) {
-                                    loadOneImage(counter+1);
-                                }
-                            }
-    }
-
 
     public void refreshFeedList() {
         Toast.makeText(this, "updating.."+locNameList.length, Toast.LENGTH_SHORT).show();
@@ -228,7 +214,6 @@ public class LocationReviews extends AppCompatActivity {
         }
 
         try {
-//            FeedStringAdapter newAdaper = feedslist.getAdapter();
             newAdaper.changeData(locNameList, locParaList, locRatingList, locImgURLList, myStorage);
             newAdaper.notifyDataSetChanged();
             Toast.makeText(this, "Changed:"+feedslist.getAdapter().getCount(), Toast.LENGTH_SHORT).show();
@@ -245,9 +230,6 @@ public class LocationReviews extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        savedBitmap = (Bitmap) data.getExtras().get("data");
-//        capturedImg.setImageBitmap(savedBitmap);
-//        if(resultCode==1) {
             if (requestCode == 333) {
                 feedslist.setAdapter(null);
                 setFeedListenerLoc(titleString);
