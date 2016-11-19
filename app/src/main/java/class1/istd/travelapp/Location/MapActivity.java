@@ -99,6 +99,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        super.onOptionsItemSelected(item);
         int id = item.getItemId();
 
         switch (id){
