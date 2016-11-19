@@ -31,7 +31,6 @@ import class1.istd.travelapp.BaseActivity;
 import class1.istd.travelapp.SearchFunction;
 import class1.istd.travelapp.MyDatabase;
 import class1.istd.travelapp.R;
-import class1.istd.travelapp.UserReviews.LocationReviews;
 
 public class LocationPicker extends BaseActivity implements AdapterView.OnItemClickListener{
     ListView listAttractions;
@@ -123,7 +122,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
                             adapter.notifyDataSetChanged();
                         }
                     } catch (Exception i) {
-                        Log.e("failed fetch rating", ": foreign entry");
+                        //foregin data
                     }
                 }
 
@@ -140,13 +139,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         String locationClicked = ((ItemAttraction) adapter.getItem(i)).getItem_name();
         Toast.makeText(getApplicationContext(), locationClicked, Toast.LENGTH_SHORT).show();
-        goToReviewScreen(locationClicked);
-    }
-
-    public void goToReviewScreen(String destination) {
-        Intent reviewIntent = new Intent(this, LocationReviews.class);
-        reviewIntent.putExtra("location", destination);
-        startActivity(reviewIntent);
+        //TODO: put extra and add new intent to review screen
     }
 
     public void btnPlanRouteClicked(View view) {

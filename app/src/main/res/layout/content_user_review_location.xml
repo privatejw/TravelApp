@@ -14,8 +14,7 @@
         android:id="@+id/locRevsTextView"
         android:textStyle="normal|bold"
         android:textSize="30sp"
-        android:textAlignment="center"
-        android:onClick="goToLocation" />
+        android:textAlignment="center" />
 
     <TextView
         android:text="see location in map"
@@ -23,8 +22,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/seeLocTextss"
         android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:onClick="goToLocation" />
+        android:textColor="@color/colorAccent" />
 
     <LinearLayout
         android:orientation="horizontal"

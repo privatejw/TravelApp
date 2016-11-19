@@ -197,8 +197,20 @@ public class UserReviewPlaceHolder extends BaseActivity {
     }
 
     public void prepareToGo(String destination) {
+        // ----- sending whole array to next activity method
+        //setFeedListenerLoc(destination);
+        //
+
         Intent gothereintent = new Intent(this, LocationReviews.class);
+//        gothereintent.putExtra("Method", "Length");
         gothereintent.putExtra("location", destination);
+        HashMap<String, Long> placeMeta = metaData.get(destination);
+        try {
+            gothereintent.putExtra("averageRating", placeMeta.get("currentRating"));
+        } catch (Exception e) {
+            gothereintent.putExtra("averageRating", 0.0);
+        }
+//        gothereintent.putExtra("listLength", placeMeta.get("totalReviews"));
         startActivity(gothereintent);
     }
 

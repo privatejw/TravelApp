@@ -78,10 +78,6 @@ public class FeedStringAdapter extends ArrayAdapter<String> {
         TextView paratxt = (TextView) feedtems.findViewById(R.id.reviewParaText);
         RatingBar rattee = (RatingBar) feedtems.findViewById(R.id.indivRatingBar);
 
-        if(revName[position].equals("Nobody")) {
-            rattee.setVisibility(View.INVISIBLE);
-        }
-
 
         nametxtview.setText(revName[position]);
         paratxt.setText(revPara[position]);
