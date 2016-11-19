@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/locationImg"
+            android:layout_weight="1"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:layout_height="75dp"
+            android:layout_width="125dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@android:drawable/presence_online" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:text="Location Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/locationName"
+                android:textSize="24sp"
+                android:textStyle="normal|bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/locationRating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:numStars="5"
+                android:rating="3"
+                android:stepSize="0.1"
+                android:layout_weight="0" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "793386460228",
+    "firebase_url": "https://gola-travelapp.firebaseio.com",
+    "project_id": "gola-travelapp",
+    "storage_bucket": "gola-travelapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793386460228:android:236cf7c098105867",
+        "android_client_info": {
+          "package_name": "com.example.kygrykhon.golauserfeed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793386460228-go43ducsd3v61jg03ddo912ojqvnbgo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFSXMoth5P1n6biLUNHgiJmzWtsY4zydY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793386460228:android:3f4b4e3495ae9b4e",
+        "android_client_info": {
+          "package_name": "com.example.kygrykhon.gola_review"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793386460228-go43ducsd3v61jg03ddo912ojqvnbgo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFSXMoth5P1n6biLUNHgiJmzWtsY4zydY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793386460228:android:91df83b03356e873",
+        "android_client_info": {
+          "package_name": "class1.istd.travelapp.Location"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793386460228-go43ducsd3v61jg03ddo912ojqvnbgo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFSXMoth5P1n6biLUNHgiJmzWtsY4zydY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793386460228:android:2122e0133d43a172",
+        "android_client_info": {
+          "package_name": "class1.istd.travelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793386460228-go43ducsd3v61jg03ddo912ojqvnbgo6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFSXMoth5P1n6biLUNHgiJmzWtsY4zydY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

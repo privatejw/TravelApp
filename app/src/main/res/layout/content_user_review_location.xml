@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:text="Location guyzz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/locRevsTextView"
+        android:textStyle="normal|bold"
+        android:textSize="30sp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="see location in map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seeLocTextss"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loclocratingBar"
+            android:numStars="5"
+            android:rating="3.2"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_weight="0" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/feedList"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Add Review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addReviewBut"
+            android:onClick="goToAddReview" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
