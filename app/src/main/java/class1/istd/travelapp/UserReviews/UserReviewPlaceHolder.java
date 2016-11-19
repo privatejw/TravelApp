@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.view.menu.MenuBuilder;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -86,29 +87,19 @@ public class UserReviewPlaceHolder extends BaseActivity {
                 thisProgress.setIndeterminate(true);
                 thisProgress.setVisibility(View.VISIBLE);
                 metaData = (HashMap<String, HashMap>) dataSnapshot.getValue();
-//                ArrayList<String> locationNames = new ArrayList<String>();
-//                ArrayList<Float> locationRatings = new ArrayList<Float>();
                 for(HashMap.Entry locMeta: metaData.entrySet()) {
                     try {
-//                    locationNames.add((String)locMeta.getKey());
                         int i = attractionlist.get((String) locMeta.getKey());
                         try {
-//                        locationRatings.add(((Double) ((HashMap)locMeta.getValue()).get("currentRating")).floatValue());
                             defrating[i] = ((Double) ((HashMap) locMeta.getValue()).get("currentRating")).floatValue();
                         } catch (Exception e) {
-//                        locationRatings.add(((Long) ((HashMap)locMeta.getValue()).get("currentRating")).floatValue());
                             defrating[i] = ((Long) ((HashMap) locMeta.getValue()).get("currentRating")).floatValue();
                         }
                     } catch (Exception i) {
                         //foregin data
+                        Log.e("Failed to fetch entry", ": no such place in database");
                     }
                 }
-
-//                defname = locationNames.toArray(new String[locationNames.size()]);
-//                defrating = new float[locationRatings.size()];
-//                for(int i=0; i<locationRatings.size();i++) {
-//                    defrating[i] = locationRatings.get(i).floatValue();
-//                }
 
                 refreshLocList();
             }
@@ -188,7 +179,6 @@ public class UserReviewPlaceHolder extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 LocationListAdapter getMyAdapter = (LocationListAdapter) parent.getAdapter();
-//                Toast.makeText(getApplicationContext(), "Going to:" + getMyAdapter.getLocationNames()[position], Toast.LENGTH_SHORT).show();
                 prepareToGo(getMyAdapter.getLocationNames()[position]);
             }
         });
@@ -198,19 +188,8 @@ public class UserReviewPlaceHolder extends BaseActivity {
 
     public void prepareToGo(String destination) {
         // ----- sending whole array to next activity method
-        //setFeedListenerLoc(destination);
-        //
-
         Intent gothereintent = new Intent(this, LocationReviews.class);
-//        gothereintent.putExtra("Method", "Length");
         gothereintent.putExtra("location", destination);
-        HashMap<String, Long> placeMeta = metaData.get(destination);
-        try {
-            gothereintent.putExtra("averageRating", placeMeta.get("currentRating"));
-        } catch (Exception e) {
-            gothereintent.putExtra("averageRating", 0.0);
-        }
-//        gothereintent.putExtra("listLength", placeMeta.get("totalReviews"));
         startActivity(gothereintent);
     }
 
