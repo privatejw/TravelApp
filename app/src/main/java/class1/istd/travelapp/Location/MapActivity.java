@@ -47,6 +47,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //taking extras from other activity
+        Bundle extra = getIntent().getExtras();
+        if (extra!=null) {
+            String searchQuerry = (String) extra.get("location"); // getting location that is sent from other intent
+            jumpToLocation(searchQuerry);
+        }
+
         //initialize geocoder
         geocoder = new Geocoder(getApplicationContext());
 
@@ -73,6 +80,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                         returnLocation = "Singapore " + returnLocation;
                     }
 
+                    //HERE
+                    //Should use jumpToLocation() instead
+                    //
+
                     List<Address> location = geocoder.getFromLocationName(returnLocation, 1);
                     double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
                     double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
@@ -95,6 +106,22 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void jumpToLocation(String destination) { //function to jump to a specific location
+        try {
+            List<Address> location = geocoder.getFromLocationName(destination, 1);
+            double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
+            double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
+
+            LatLng newLocation = new LatLng(lat, lon);
+
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(newLocation));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 15));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

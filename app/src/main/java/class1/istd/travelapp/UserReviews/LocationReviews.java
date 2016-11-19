@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import class1.istd.travelapp.Location.MapActivity;
 import class1.istd.travelapp.R;
 
 public class LocationReviews extends AppCompatActivity {
@@ -36,22 +37,18 @@ public class LocationReviews extends AppCompatActivity {
     private String[] locParaList;
     private float[] locRatingList;
     private Bitmap[] locBitmapList;
-//    private Uri[] locImgURI;
     private ArrayList<Bitmap> bitmapTempList = new ArrayList<>();
     private HashMap<String, Bitmap> bitmapHashMap = new HashMap<>();
     private String[] locImgURLList;
     private String titleString;
-//    private FeedAdapter newAdapt;
     private FeedStringAdapter newAdaper;
 
-    private String[] emptyStringName = {"Nobody "};
+    private String[] emptyStringName = {"Nobody"};
     private String[] emptyStringUrl = {"images/100000000.jpg"};
     private String[] emptyStringPara = {"There is currently no review on this place"};
     private float[] emptyFloat = {0};
     private Uri[] emptyUri;
 
-//    private Bitmap noImageBitmap;
-//    private int loadImgCounter;
     private DatabaseReference locationRef;
     private ValueEventListener locationRefListen;
 
@@ -75,42 +72,11 @@ public class LocationReviews extends AppCompatActivity {
 
         Bundle extra = getIntent().getExtras();
         if (extra!=null) {
-            if (extra.get("sourceActivity") != null) {
-                if(extra.get("sourceActivity").equals("routeOpt")) {
-                    titleString = (String) extra.get("location");
-                    DatabaseReference tempRatingRef = myDB.getReference("metaData").child(titleString).child("currentRating");
-                    tempRatingRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            try {
-                                rating = ((Double) dataSnapshot.getValue()).floatValue();
-                            } catch (Exception e) {
-                                rating = ((Long) dataSnapshot.getValue()).floatValue();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
-                } else {
-                    try {
-                        rating = ((Double) extra.get("averageRating")).floatValue();
-                    } catch (Exception e) {
-                        rating = ((Long) extra.get("averageRating")).floatValue();
-                    }
-                    titleString = (String) extra.get("location");
-                }
-            } else {
-                try {
-                    rating = ((Double) extra.get("averageRating")).floatValue();
-                } catch (Exception e) {
-                    rating = ((Long) extra.get("averageRating")).floatValue();
-                }
                 titleString = (String) extra.get("location");
-            }
+        } else {
+            //Error
+            Toast.makeText(this, "ERROR: No location is picked", Toast.LENGTH_SHORT).show();
+            this.finish();
         }
 
         TextView title = (TextView) findViewById(R.id.locRevsTextView);
@@ -204,11 +170,10 @@ public class LocationReviews extends AppCompatActivity {
     }
 
     public void refreshFeedList() {
-        Toast.makeText(this, "updating.."+locNameList.length, Toast.LENGTH_SHORT).show();
+        RatingBar thisrating = (RatingBar) findViewById(R.id.loclocratingBar);
+        thisrating.setRating(rating);
         feedslist = (ListView) findViewById(R.id.feedList);
         if(feedslist.getAdapter()==null) {
-//            FeedAdapter newAdapt = new FeedAdapter(this, R.layout.feed_item_layout, locNameList, locParaList, locRatingList, locBitmapList);
-//            feedslist.setAdapter(newAdapt);
             newAdaper = new FeedStringAdapter(this,  R.layout.list_item_review_feed, locNameList, locParaList, locRatingList, locImgURLList, myStorage);
             feedslist.setAdapter(newAdaper);
         }
@@ -216,7 +181,6 @@ public class LocationReviews extends AppCompatActivity {
         try {
             newAdaper.changeData(locNameList, locParaList, locRatingList, locImgURLList, myStorage);
             newAdaper.notifyDataSetChanged();
-            Toast.makeText(this, "Changed:"+feedslist.getAdapter().getCount(), Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Toast.makeText(this, "ChangeDaTAeRROR:"+e.getMessage(), Toast.LENGTH_SHORT).show();
         }
@@ -234,8 +198,12 @@ public class LocationReviews extends AppCompatActivity {
                 feedslist.setAdapter(null);
                 setFeedListenerLoc(titleString);
             }
-//        }
+    }
 
+    public void goToLocation(View view) {
+        Intent reviewIntent = new Intent(this, MapActivity.class);
+        reviewIntent.putExtra("location", titleString);
+        startActivity(reviewIntent);
     }
 
     @Override public void finish() {
