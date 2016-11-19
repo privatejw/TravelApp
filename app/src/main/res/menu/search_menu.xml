@@ -9,4 +9,10 @@
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"/>
 
+    <item android:id="@+id/changeMapType"
+        android:title="Select Map Type"
+        android:icon="@drawable/settings_icon"
+        app:showAsAction="ifRoom" />
+
+
 </menu>

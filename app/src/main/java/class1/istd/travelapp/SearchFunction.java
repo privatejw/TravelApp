@@ -84,7 +84,8 @@ public class SearchFunction {
     }
 
     public static void main(String[] args) {
-        SearchFunction searchFunction = new SearchFunction(new String[]{"Sentosa", "Vivocity", "Singapore Flyer"});
-        System.out.println(searchFunction.search("break"));
+//        SearchFunction searchFunction = new SearchFunction(new String[]{"Sentosa", "Vivocity", "Singapore Flyer"});
+//        System.out.println(searchFunction.search("sentossa"));
+
     }
 }
