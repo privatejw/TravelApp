@@ -2,7 +2,8 @@ package class1.istd.travelapp.ItineraryPlanner;
 
 public class ItemAttraction {
     private String item_name;
-    private int item_rating;
+//    private int item_rating;
+    private float item_rating;
     private boolean selected;
 
     public ItemAttraction(String item_name, int item_rating) {
@@ -11,11 +12,13 @@ public class ItemAttraction {
         this.selected = false;
     }
 
+    protected void setRating(float rating) { item_rating = rating;}
+
     public String getItem_name() {
         return item_name;
     }
 
-    public int getItem_rating() {
+    public float getItem_rating() {
         return item_rating;
     }
 

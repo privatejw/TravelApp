@@ -44,6 +44,12 @@ public class LocationListAdapter extends ArrayAdapter<String> {
         thisActivity = context;
     }
 
+    public void changeData(@NonNull String[] namelist, @NonNull float[] thisrating, @NonNull int[] imageIDList) {
+        LocationNames = namelist;
+        ratings = thisrating;
+        imageID = imageIDList;
+    }
+
     public View getView(int position, View view, ViewGroup parents) {
         LayoutInflater inflater = thisActivity.getLayoutInflater();
         View locitem = inflater.inflate(R.layout.list_item_location_review, null, false);

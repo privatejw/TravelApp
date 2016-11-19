@@ -14,10 +14,14 @@
             android:layout_weight="1"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:layout_height="75dp"
-            android:layout_width="125dp"
             android:scaleType="centerCrop"
-            app:srcCompat="@android:drawable/presence_online" />
+            app:srcCompat="@android:drawable/presence_online"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_height="60dp"
+            android:layout_width="100dp" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -34,8 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/locationName"
-                android:textSize="24sp"
-                android:textStyle="normal|bold" />
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="#33CC33" />
 
             <Space
                 android:layout_width="match_parent"

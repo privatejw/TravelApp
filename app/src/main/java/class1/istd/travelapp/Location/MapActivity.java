@@ -7,6 +7,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -47,6 +48,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        Bundle extras = getIntent().getExtras();
+        if(extras!= null) {
+            String directDestination = extras.getString("location");
+            jumpToLocation(directDestination);
+        }
+
         //initialize geocoder
         geocoder = new Geocoder(getApplicationContext());
 
@@ -73,6 +80,9 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                         returnLocation = "Singapore " + returnLocation;
                     }
 
+
+                    // TODO: use jumpToLocation() and implement there
+
                     List<Address> location = geocoder.getFromLocationName(returnLocation, 1);
                     double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
                     double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
@@ -95,6 +105,23 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void jumpToLocation(String destination) {
+        try {
+            List<Address> location = geocoder.getFromLocationName(destination, 1);
+            double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
+            double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
+
+            LatLng newLocation = new LatLng(lat, lon);
+
+            mMap.clear();
+            mMap.addMarker(new MarkerOptions().position(newLocation));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation, 15));
+        } catch (Exception e) {
+            Log.e("Failed to jump", ": locationFinder error");
+        }
+
     }
 
     @Override

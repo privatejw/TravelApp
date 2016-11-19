@@ -112,7 +112,8 @@
                     android:ems="10"
                     android:id="@+id/nameEditText"
                     android:layout_weight="0"
-                    android:hint="your name.." />
+                    android:hint="your name.."
+                    android:maxLength="16" />
 
             </LinearLayout>
 

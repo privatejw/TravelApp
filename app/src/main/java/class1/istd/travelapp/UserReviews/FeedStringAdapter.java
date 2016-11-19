@@ -82,8 +82,10 @@ public class FeedStringAdapter extends ArrayAdapter<String> {
         nametxtview.setText(revName[position]);
         paratxt.setText(revPara[position]);
         rattee.setRating(revRating[position]);
-//        imgview.setImageBitmap(tempBitmap.get(position));
-//        if(tempUri.get(position) ==null) {
+
+        if(revName[position].equals("Nobody")) {
+            rattee.setVisibility(View.INVISIBLE);
+        }
             stoRef.getReference(revURL[position]).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
