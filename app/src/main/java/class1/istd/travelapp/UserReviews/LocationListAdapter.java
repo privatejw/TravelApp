@@ -1,6 +1,7 @@
 package class1.istd.travelapp.UserReviews;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import class1.istd.travelapp.R;
  */
 
 public class LocationListAdapter extends ArrayAdapter<String> {
+    Context context;
     private String[] LocationNames;
     private float[] ratings;
     private int[] imageID;
@@ -38,6 +40,7 @@ public class LocationListAdapter extends ArrayAdapter<String> {
 
     LocationListAdapter(Activity context, @LayoutRes int resID, @NonNull String[] namelist, @NonNull float[] thisrating, @NonNull int[] imageIDList) {
         super(context, resID, R.id.locationName, namelist);
+        this.context = context;
         LocationNames = namelist;
         ratings = thisrating;
         imageID = imageIDList;
@@ -50,18 +53,49 @@ public class LocationListAdapter extends ArrayAdapter<String> {
         imageID = imageIDList;
     }
 
+    @Override
     public View getView(int position, View view, ViewGroup parents) {
-        LayoutInflater inflater = thisActivity.getLayoutInflater();
-        View locitem = inflater.inflate(R.layout.list_item_location_review, null, false);
+        ViewHolder holder;
 
-        ImageView img = (ImageView) locitem.findViewById(R.id.locationImg);
-        TextView thisText = (TextView) locitem.findViewById(R.id.locationName);
-        RatingBar thisrate = (RatingBar) locitem.findViewById(R.id.locationRating);
+        LayoutInflater mInflater = (LayoutInflater) thisActivity.getSystemService(
+                Activity.LAYOUT_INFLATER_SERVICE);
 
-//        img.setImageBitmap(BitmapFactory.decodeResource(thisActivity.getResources(), imageID[position]));
-        thisText.setText(LocationNames[position]);
-        thisrate.setRating(ratings[position]);
+        if (view == null) {
+            view = mInflater.inflate(R.layout.list_item_location_review2, null);
+            holder = new ViewHolder();
+//            holder.imageView = (ImageView) view.findViewById(R.id.locationImage2);
+            holder.thisText = (TextView) view.findViewById(R.id.locationName2);
+            holder.thisrate = (RatingBar) view.findViewById(R.id.locationRating2);
 
-        return locitem;
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
+        }
+
+//        holder.imageView.setImageResource(R.drawable.merlion);
+        holder.thisText.setText(LocationNames[position]);
+        holder.thisrate.setRating(ratings[position]);
+
+        return view;
+
+
+//        LayoutInflater inflater = thisActivity.getLayoutInflater();
+//        View locitem = inflater.inflate(R.layout.list_item_location_review, null, false);
+//
+//        ImageView imageView = (ImageView) locitem.findViewById(R.id.locationImg);
+//        TextView thisText = (TextView) locitem.findViewById(R.id.locationName);
+//        RatingBar thisrate = (RatingBar) locitem.findViewById(R.id.locationRating);
+//
+////        img.setImageBitmap(BitmapFactory.decodeResource(thisActivity.getResources(), imageID[position]));
+//        thisText.setText(LocationNames[position]);
+//        thisrate.setRating(ratings[position]);
+//
+//        return locitem;
+    }
+
+    private class ViewHolder {
+        ImageView imageView;
+        TextView thisText;
+        RatingBar thisrate;
     }
 }
