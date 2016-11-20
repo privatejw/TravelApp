@@ -42,7 +42,7 @@ import class1.istd.travelapp.BaseActivity;
 import class1.istd.travelapp.R;
 import class1.istd.travelapp.SearchFunction;
 
-public class UserReviewPlaceHolder extends BaseActivity {
+public class UserReview extends BaseActivity {
     private ListView myLocationList;
     private ProgressBar thisProgress;
     private int progressStatus = 0;

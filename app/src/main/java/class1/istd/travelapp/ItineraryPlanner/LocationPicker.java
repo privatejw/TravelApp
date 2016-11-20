@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import class1.istd.travelapp.Algo;
+import class1.istd.travelapp.BruteAlgo;
 import class1.istd.travelapp.BaseActivity;
 import class1.istd.travelapp.SearchFunction;
 import class1.istd.travelapp.MyDatabase;
@@ -39,7 +39,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
     EditText txtBudget;
     AutoCompleteTextView txtHotel;
     Button btnPlanRoute;
-    Algo algo;
+    BruteAlgo bruteAlgo;
     SearchFunction searchFunction;
     List<ItemAttraction> itemAttractions;
     HashMap<String, Integer> attractionlist;
@@ -96,7 +96,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
         // initialize database
         try {
             MyDatabase db = new MyDatabase(new InputStreamReader(getAssets().open("finalDatabase")));
-            algo = new Algo(db);
+            bruteAlgo = new BruteAlgo(db);
             searchFunction = new SearchFunction(getResources().getStringArray(R.array.item_attractions));
         } catch (IOException e) {
             Log.e("failed to load database", ": nooo");
@@ -180,7 +180,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
             }
             // get the item routes
             String[] overallRouteInfo = new String[1];
-            ArrayList<ItemRoute> itemRoutes = algo.getBestPath(placesToVisit.toArray(
+            ArrayList<ItemRoute> itemRoutes = bruteAlgo.getBestPath(placesToVisit.toArray(
                     new String[placesToVisit.size()]), budget, hotel, overallRouteInfo);
 
             // add the route information and start the new activity
@@ -193,7 +193,7 @@ public class LocationPicker extends BaseActivity implements AdapterView.OnItemCl
 
     public ArrayList<ItemRoute> planRoute(double budget, String hotel,
                 ArrayList<String> placesToVisit, String[] overallRouteInfo) {
-        ArrayList<ItemRoute> itemRoutes = algo.getBestPath(
+        ArrayList<ItemRoute> itemRoutes = bruteAlgo.getBestPath(
                 placesToVisit.toArray(new String[placesToVisit.size()]), budget, hotel, overallRouteInfo);
 
         return itemRoutes;

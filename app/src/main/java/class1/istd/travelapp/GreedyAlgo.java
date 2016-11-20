@@ -8,6 +8,9 @@ import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
 
 /**
  * Created by dilyl on 11/17/2016.
+ *
+ * Uses the Nearest Neighbour algorithm to find the best path, then optimises the path based on the
+ * price
  */
 
 public class GreedyAlgo {

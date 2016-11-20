@@ -1,55 +1,8 @@
 <resources>
     <string name="app_name">GoLah!</string>
     <string name="action_settings">Settings</string>
-    <string-array name="country_arrays">
-        <item>Marina Bay Sands</item>
-        <item>Resorts World Sentosa</item>
-    </string-array>
+
     <string name="title_activity_location_picker">Location Picker</string>
-    <string-array name="item_array">
-        <item>Bird</item>
-        <item>Children</item>
-        <item>Add</item>
-        <item>Flower</item>
-        <item>Smile</item>
-        <item>Peacock</item>
-        <item>Add</item>
-        <item>Add</item>
-        <item>Bird</item>
-        <item>Add</item>
-        <item>Flower</item>
-        <item>Peacock</item>
-    </string-array>
-
-    <string-array name="item_description">
-        <item>Description Bird</item>
-        <item>Description Children</item>
-        <item>Description Add</item>
-        <item>Description Flower</item>
-        <item>Description Smile</item>
-        <item>Description Peacock</item>
-        <item>Description Add</item>
-        <item>Description Add</item>
-        <item>Description Bird</item>
-        <item>Description Add</item>
-        <item>Description Flower</item>
-        <item>Description Peacock</item>
-    </string-array>
-
-    <string-array name="item_images">
-        <item>@drawable/ic_menu_camera</item>
-        <item>@drawable/ic_menu_gallery</item>
-        <item>@drawable/ic_menu_manage</item>
-        <item>@drawable/ic_menu_send</item>
-        <item>@drawable/ic_menu_share</item>
-        <item>@drawable/ic_menu_slideshow</item>
-        <item>@drawable/ic_menu_share</item>
-        <item>@drawable/ic_menu_slideshow</item>
-        <item>@drawable/ic_menu_send</item>
-        <item>@drawable/ic_menu_camera</item>
-        <item>@drawable/ic_menu_send</item>
-        <item>@drawable/ic_menu_manage</item>
-    </string-array>
 
     <string-array name="item_attractions">
         <item>Abdul Gaffoor Mosque</item>
@@ -157,6 +110,6 @@
     <string name="title_activity_maps">Maps Activity</string>
     <string name="title_activity_bus_timings">Bus Timings</string>
     <string name="title_activity_book_ataxi2">Book a Taxi</string>
-    <string name="title_activity_location_place_holder">Location Finder</string>
-    <string name="title_activity_user_review_place_holder">User Reviews</string>
+    <string name="title_activity_location">Map</string>
+    <string name="title_activity_user_review">User Reviews</string>
 </resources>

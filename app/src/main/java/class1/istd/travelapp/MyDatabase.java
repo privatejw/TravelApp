@@ -117,20 +117,6 @@ public class MyDatabase {
             e.printStackTrace();
         }
     }
-    void readJSON() {
-        // doesn't work exactly as intended
-        try {
-            JSONObject obj = new JSONObject("database.json");
-            JSONArray pageName = obj.getJSONObject("Zoo").getJSONArray("Zoo");
-
-            System.out.println(pageName.toString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    void run() {}
 
     public static void main(String[] args) {
 //        (new MyDatabase()).run();

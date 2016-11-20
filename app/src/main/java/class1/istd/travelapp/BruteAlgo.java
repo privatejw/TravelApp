@@ -5,7 +5,11 @@ import java.util.Arrays;
 
 import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
 
-public class Algo {
+/*
+ * Brute force algorithm to find all possible routes and all possible prices.
+ */
+
+public class BruteAlgo {
     int bestTime;
     String[] bestRoute;
     String[] thisRoute;
@@ -232,11 +236,11 @@ public class Algo {
         return out;
     }
 
-    public Algo() {
+    public BruteAlgo() {
         this.db = new MyDatabase();
     }
 
-    public Algo(MyDatabase db) {
+    public BruteAlgo(MyDatabase db) {
         this.db = db;
     }
 
@@ -279,14 +283,14 @@ public class Algo {
     }
 
     public static void main(String[] args) {
-        Algo algo = new Algo();
-        algo.getBestPath(new String[]{"Wonder Full at Marina Bay Sands", "ArtScience Museum",
+        BruteAlgo bruteAlgo = new BruteAlgo();
+        bruteAlgo.getBestPath(new String[]{"Wonder Full at Marina Bay Sands", "ArtScience Museum",
                 "Singapore Zoo", "Singapore Flyer"}, 0.6, "Bukit Timah Nature Reserve", new String[1]);
 
 
-        System.out.println(Arrays.toString(algo.transport));
-        System.out.println(Arrays.toString(algo.bestRoute));
-        System.out.println("Price: $"+Math.round(algo.currentPrice * 100.0) / 100.0);
-        System.out.println("Time: "+algo.currentTime+ " minutes");
+        System.out.println(Arrays.toString(bruteAlgo.transport));
+        System.out.println(Arrays.toString(bruteAlgo.bestRoute));
+        System.out.println("Price: $"+Math.round(bruteAlgo.currentPrice * 100.0) / 100.0);
+        System.out.println("Time: "+ bruteAlgo.currentTime+ " minutes");
     }
 }
