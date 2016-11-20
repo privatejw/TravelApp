@@ -58,7 +58,7 @@ public class LocationListAdapter extends ArrayAdapter<String> {
         TextView thisText = (TextView) locitem.findViewById(R.id.locationName);
         RatingBar thisrate = (RatingBar) locitem.findViewById(R.id.locationRating);
 
-        img.setImageBitmap(BitmapFactory.decodeResource(thisActivity.getResources(), imageID[position]));
+//        img.setImageBitmap(BitmapFactory.decodeResource(thisActivity.getResources(), imageID[position]));
         thisText.setText(LocationNames[position]);
         thisrate.setRating(ratings[position]);
 
