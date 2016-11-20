@@ -51,7 +51,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         Bundle extras = getIntent().getExtras();
         if(extras!= null) {
             String directDestination = extras.getString("location");
-            jumpToLocation(directDestination);
+            jumpToLocation(directDestination,directDestination);
         }
 
         //initialize geocoder
@@ -75,23 +75,14 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
                 try {
                     SearchFunction searchFunction = new SearchFunction(getResources().getStringArray(R.array.item_attractions));
                     String returnLocation = searchFunction.search(query);
-                    
+
                     if (!returnLocation.contains("Singapore")){
                         returnLocation = "Singapore " + returnLocation;
                     }
 
 
-                    // TODO: use jumpToLocation() and implement there
+                    jumpToLocation(returnLocation,query);
 
-                    List<Address> location = geocoder.getFromLocationName(returnLocation, 1);
-                    double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
-                    double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
-
-                    LatLng newLocation = new LatLng(lat,lon);
-
-                    mMap.clear();
-                    mMap.addMarker(new MarkerOptions().position(newLocation));
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newLocation,15));
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -107,9 +98,17 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void jumpToLocation(String destination) {
+    public void jumpToLocation(String searchResult, String originalQuery) {
         try {
-            List<Address> location = geocoder.getFromLocationName(destination, 1);
+            List<Address> location = geocoder.getFromLocationName(searchResult, 1);
+
+            if(location.size()==0){
+                location = geocoder.getFromLocationName(originalQuery, 1);
+                if(location.size()==0){
+                    Toast.makeText(this, "Can't find location", Toast.LENGTH_SHORT).show();
+                }
+            }
+
             double lat = Double.parseDouble(String.valueOf(location.get(0).getLatitude()));
             double lon = Double.parseDouble(String.valueOf(location.get(0).getLongitude()));
 
