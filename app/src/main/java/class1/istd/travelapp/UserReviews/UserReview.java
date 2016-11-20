@@ -1,21 +1,11 @@
 package class1.istd.travelapp.UserReviews;
 
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.view.menu.MenuBuilder;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
@@ -24,9 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,13 +23,11 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import class1.istd.travelapp.BaseActivity;
 import class1.istd.travelapp.R;
-import class1.istd.travelapp.SearchFunction;
 
-public class UserReviewPlaceHolder extends BaseActivity {
+public class UserReview extends BaseActivity {
     private ListView myLocationList;
     private ProgressBar thisProgress;
     private int progressStatus = 0;
@@ -62,7 +47,7 @@ public class UserReviewPlaceHolder extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_review_place_holder);
+        setContentView(R.layout.activity_user_review);
 
         myDB = FirebaseDatabase.getInstance();
         myStorage = FirebaseStorage.getInstance();

@@ -19,7 +19,7 @@ import class1.istd.travelapp.BookATaxi.BookATaxi;
 import class1.istd.travelapp.BusTimings.BusTimings;
 import class1.istd.travelapp.ItineraryPlanner.LocationPicker;
 import class1.istd.travelapp.Location.MapActivity;
-import class1.istd.travelapp.UserReviews.UserReviewPlaceHolder;
+import class1.istd.travelapp.UserReviews.UserReview;
 
 
 public class BaseActivity extends AppCompatActivity implements
@@ -115,7 +115,7 @@ public class BaseActivity extends AppCompatActivity implements
             startActivity(new Intent(getApplicationContext(), MapActivity.class));
             finish();
         } else if (id == R.id.user_reviews) {
-            startActivity(new Intent(getApplicationContext(), UserReviewPlaceHolder.class));
+            startActivity(new Intent(getApplicationContext(), UserReview.class));
             finish();
         } else if (id == R.id.bus_timings) {
             startActivity(new Intent(getApplicationContext(), BusTimings.class));
@@ -123,13 +123,10 @@ public class BaseActivity extends AppCompatActivity implements
         } else if (id == R.id.book_a_taxi) {
             startActivity(new Intent(getApplicationContext(), BookATaxi.class));
             finish();
-        } else if (id == R.id.sign_out) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }

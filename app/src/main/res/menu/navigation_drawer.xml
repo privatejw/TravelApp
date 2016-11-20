@@ -12,7 +12,7 @@
             android:title="Location" />
         <item
             android:id="@+id/user_reviews"
-            android:icon="@drawable/ic_media_route_connecting_05_light"
+            android:icon="@android:drawable/ic_input_get"
             android:title="User Reviews" />
         <item
             android:id="@+id/bus_timings"
@@ -23,14 +23,5 @@
             android:icon="@android:drawable/sym_action_call"
             android:title="Book a Taxi" />
     </group>
-
-    <item android:title="Account">
-        <menu>
-            <item
-                android:id="@+id/sign_out"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Sign out" />
-        </menu>
-    </item>
 
 </menu>
