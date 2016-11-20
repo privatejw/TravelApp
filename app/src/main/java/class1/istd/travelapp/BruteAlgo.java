@@ -7,6 +7,8 @@ import class1.istd.travelapp.ItineraryPlanner.ItemRoute;
 
 /*
  * Brute force algorithm to find all possible routes and all possible prices.
+ *
+ * Can handle up to 8 locations without serious lag
  */
 
 public class BruteAlgo {

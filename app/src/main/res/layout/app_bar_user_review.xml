@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_user_review_place_holder" />
+    <include layout="@layout/content_user_review" />
 
 </android.support.design.widget.CoordinatorLayout>
