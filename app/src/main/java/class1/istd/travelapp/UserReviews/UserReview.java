@@ -42,7 +42,7 @@ public class UserReview extends BaseActivity {
     String[] attractionNames;
     String[] defname = {"loading.."}; //default lists for initial listadapters
     float[] defrating = {(float)0};
-    int[] defimgid = {R.drawable.bus_icon};
+    int[] defimgid = {R.drawable.merlion};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class UserReview extends BaseActivity {
         for(int i=0; i<defname.length; i++) {
             attractionlist.put(defname[i], i);
             defrating[i] = 0;
-            defimgid[i] = R.drawable.bus_icon;
+            defimgid[i] = R.drawable.merlion;
         }
 
         TotalRevRef = myDB.getReference("metaData");
