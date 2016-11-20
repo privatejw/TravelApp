@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:srcCompat="@drawable/merlion"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/locationImage2"
+        android:contentDescription="placeholder" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:paddingStart="2dp"
+        android:layout_toEndOf="@+id/locationImage2"
+        android:layout_alignBottom="@+id/locationImage2">
+
+        <TextView
+            android:id="@+id/locationName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#33CC33" />
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/locationRating2"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:numStars="5"
+            android:rating="3"
+            android:stepSize="0.1"
+            style="@style/Widget.AppCompat.RatingBar.Small" />
+
+    </LinearLayout>
+</RelativeLayout>
