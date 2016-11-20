@@ -12,7 +12,7 @@
             android:title="Location" />
         <item
             android:id="@+id/user_reviews"
-            android:icon="@drawable/ic_media_route_connecting_05_light"
+            android:icon="@android:drawable/ic_input_get"
             android:title="User Reviews" />
         <item
             android:id="@+id/bus_timings"
