@@ -40,7 +40,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     Geocoder geocoder;
     GoogleMap mMap;
     private static final int ERROR_DIALOGUE_REQUEST = 9001;
-    private static final CharSequence[] MAP_TYPE_ITEMS = {"Road Map", "Hybrid", "Satellite", "Terrain"};
+    private static final CharSequence[] MAP_TYPE_ITEMS = {"Road Map", "Satellite", "Terrain", "Hybrid"};
 
 
     @Override
@@ -150,13 +150,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             public void onClick(DialogInterface dialog, int item){
                 switch(item){
                     case 1:
-                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                        break;
-                    case 2:
                         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                         break;
-                    case 3:
+                    case 2:
                         mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                        break;
+                    case 3:
+                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                         break;
                     default:
                         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
