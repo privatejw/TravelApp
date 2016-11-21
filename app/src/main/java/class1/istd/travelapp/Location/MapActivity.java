@@ -150,13 +150,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
             public void onClick(DialogInterface dialog, int item){
                 switch(item){
                     case 1:
-                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                         break;
                     case 2:
-                        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                         break;
                     case 3:
-                        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                        mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
                         break;
                     default:
                         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
