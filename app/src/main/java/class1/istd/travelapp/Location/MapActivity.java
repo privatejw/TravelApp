@@ -40,7 +40,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback {
     Geocoder geocoder;
     GoogleMap mMap;
     private static final int ERROR_DIALOGUE_REQUEST = 9001;
-    private static final CharSequence[] MAP_TYPE_ITEMS = {"Road Map", "Hybrid", "Satellite", "Terrain"};
+    private static final CharSequence[] MAP_TYPE_ITEMS = {"Road Map", "Satellite", "Terrain", "Hybrid"};
 
 
     @Override
